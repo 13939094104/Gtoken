@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt">
+    <data>
+
+    </data>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center"
+                      android:orientation="vertical"
+            android:background="@drawable/wallet_bg_normal"
+                      android:layout_width="296dp"
+                      android:layout_height="378dp"
+                      android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_qr"
+                    android:src="@mipmap/bg_load"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="186dp"
+                    android:layout_height="186dp" />
+
+                <TextView
+                    android:id="@+id/tv_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_code"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:tag="skin:wallet_qr_dialog_str:textColor"
+                    android:textSize="12sp"
+                    android:textColor="@color/wallet_gray" />
+            </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/options" android:layout_width="235dp"
+                                                         android:layout_height="46.5dp" android:layout_marginTop="25dp">
+                <ImageView android:id="@+id/iv_save"
+                           app:layout_constraintTop_toTopOf="parent"
+                           android:background="@drawable/icon_wallet_keep_big"
+                           android:layout_width="32dp"
+                           android:layout_height="32dp"
+                           app:layout_constraintEnd_toStartOf="@+id/iv_share"
+                           app:layout_constraintHorizontal_bias="0.5"
+                           app:layout_constraintStart_toStartOf="parent"/>
+                <ImageView android:id="@+id/iv_share"
+                           android:background="@drawable/icon_share"
+                           app:layout_constraintTop_toTopOf="parent"
+                           android:layout_width="32.5dp"
+                           android:layout_height="32.5dp"
+                           app:layout_constraintEnd_toStartOf="@+id/iv_copy"
+                           app:layout_constraintHorizontal_bias="0.5"
+                           app:layout_constraintStart_toEndOf="@+id/iv_save"/>
+                <ImageView android:id="@+id/iv_copy"
+                           android:background="@drawable/icon_wallet_copy_big"
+                           app:layout_constraintTop_toTopOf="parent"
+                           android:layout_width="32dp"
+                           android:layout_height="32dp"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintHorizontal_bias="0.5"
+                           app:layout_constraintStart_toEndOf="@+id/iv_share"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

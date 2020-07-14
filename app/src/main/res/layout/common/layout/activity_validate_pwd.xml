@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="validatePwdModel" type="com.vtoken.application.viewModel.ValidatePwdViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:id="@+id/teod"
+        android:orientation="vertical"
+            android:gravity="center">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="336dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/bg_r8_bfff"
+                android:layout_height="198dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="336dp"
+                    android:layout_height="0dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingRight="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toLeftOf="parent"
+
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            >
+                            <TextView
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:elevation="0dp"
+                                android:text="请输入钱包密码"
+                                android:textColor="#061229"
+                                android:layout_marginTop="2dp"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:id="@+id/cancel"
+                                android:src="@drawable/icon_close_16"
+                                android:layout_width="24dp"
+                                android:elevation="3dp"
+                                android:onClick="@{()-> validatePwdModel.cancel()}"
+                                android:layout_height="24dp"
+                                />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"/>
+
+
+
+                        <EditText
+                            android:id="@+id/editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="46dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:gravity="center"
+
+                            android:background="@drawable/input_r4_bf5f8ff"
+                            android:ems="10"
+                            android:hint="输入钱包密码"
+                            android:inputType="textPassword"
+
+                            android:text="@={validatePwdModel.pwdInputString}"
+                            android:textColor="#000"
+                            android:textColorHint="#6E6E6E"
+
+                            android:textCursorDrawable="@null"
+                            android:textSize="14sp" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:id="@+id/buy"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/press_change_yellow_button"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:onClick="@{()->validatePwdModel.confirm()}"
+                            android:text="确定"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+       <!-- <LinearLayout
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="296dp"
+                android:paddingRight="22dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="22dp"
+                android:background="@drawable/detailtran_qtcode_dialogshdow"
+                android:layout_height="186dp">
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="请输入钱包密码"
+                        android:textColor="#C4CEE5"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView23"/>
+            </FrameLayout>
+
+                <EditText
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="#0F1118"
+                        android:textColor="#646B7B"
+                        android:textSize="12sp"
+                        android:paddingLeft="12dp"
+                        android:textCursorDrawable="@null"
+                        android:hint="输入钱包密码"
+                        android:textColorHint="#646B7B"
+                        android:inputType="textPassword"
+                        android:text="@={validatePwdModel.pwdInputString}"
+                        android:ems="10"
+                        android:id="@+id/editText"/>
+            <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@{validatePwdModel.errorString}"
+                    android:textSize="12sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:background="#0F1118"
+                    android:layout_height="1dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="50.0"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:onClick="@{()-> validatePwdModel.cancel()}"
+                        android:layout_height="wrap_content">
+
+                    <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                    >
+                        <TextView
+                                android:text="取消"
+                                android:textSize="16sp"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#646B7B"/>
+                    </TableRow>
+
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="1dp"
+
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="#0F1118"
+                        android:layout_height="20dp">
+
+
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="50.0"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:onClick="@{()->validatePwdModel.confirm()}"
+                        android:layout_height="wrap_content">
+
+
+                    <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                    >
+                        <TextView
+                                android:text="确定"
+                                android:textSize="16sp"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#EC9F0C"/>
+                    </TableRow>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>-->
+    </LinearLayout>
+</layout>

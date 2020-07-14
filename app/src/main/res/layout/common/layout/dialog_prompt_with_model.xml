@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="promptDialogModel" type="com.vtoken.application.viewModel.PromptDialogViewModel"/>
+    </data>
+    <LinearLayout android:gravity="center" android:orientation="vertical"
+                  android:background="@color/transparent"
+                  android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical"
+                      android:background="@drawable/wallet_bg_normal"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginStart="15dp"
+                      android:layout_marginEnd="15dp">
+            <TextView android:textSize="16sp" android:textColor="#828894" android:gravity="center"
+                      android:id="@+id/title"
+                      android:text="@{promptDialogModel.promptString}"
+                      android:layout_width="match_parent" android:layout_height="44dp"
+                      android:paddingStart="10dp"/>
+
+            <TextView android:textColor="#061229" android:gravity="center"
+                      android:id="@+id/info_text"
+                      android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:minHeight="80dp"
+                android:textSize="16sp"
+                      android:text="@{promptDialogModel.sapnned}"
+                      android:paddingStart="10dp" android:paddingEnd="10dp"/>
+            <View android:background="@color/dialog_divider_v"
+                  android:layout_width="match_parent" android:layout_height="0dp"/>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
+                          android:layout_height="48dp">
+                <TextView android:textSize="16sp" android:gravity="center" android:id="@+id/left_text"
+                          android:layout_width="0dp" android:layout_height="match_parent"
+                            android:textColor="@color/intro_blue"
+                          android:text="@{promptDialogModel.confirmString}"
+                          android:layout_weight="1" android:paddingStart="15dp" android:paddingEnd="15dp"/>
+
+                <TextView android:textSize="16dp" android:textColor="#828894"
+                          android:gravity="center" android:id="@+id/right_text"
+                          android:text="@{ promptDialogModel.cancelString}"
+                          android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                          android:paddingStart="15dp" android:paddingEnd="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

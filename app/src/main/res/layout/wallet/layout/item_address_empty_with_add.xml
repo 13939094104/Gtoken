@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="emptyAddressModel" type="com.vtoken.application.viewModel.wallet.AddressEmptyViewModel"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+            android:visibility="gone"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/bg_nothing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+            android:visibility="gone"
+                android:layout_width="100dp"
+                android:background="@drawable/wallet_add_selector"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:layout_height="36dp" android:id="@+id/img_add"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="openMultipleAddressDialogViewModel" type="com.vtoken.application.viewModel.wallet.OpenMultipleAddressDialogViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:id="@+id/teod"
+            android:gravity="center_horizontal">
+        <LinearLayout
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="328dp"
+                android:paddingRight="22dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="22dp"
+                android:background="@drawable/detailtran_qtcode_dialogshdow"
+                android:layout_height="290dp">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="28dp"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="多链钱包功能，已开放"
+                        android:textColor="#C4CEE5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="需用户重新填写钱包密码，后直接开通使用"
+                        android:textColor="#646B7B"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+            </LinearLayout>
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:textAlignment="center"
+                android:background="#1C1E28"
+                android:textColor="#646B7B"
+                android:textSize="16sp"
+                android:paddingLeft="12dp"
+                android:textCursorDrawable="@null"
+                android:hint="输入钱包密码"
+                android:textColorHint="#646B7B"
+                android:inputType="textPassword"
+                android:text="@={openMultipleAddressDialogViewModel.walletPwd}"
+                android:id="@+id/editText" />
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                android:text="@{openMultipleAddressDialogViewModel.tipString}"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:background="#0F1118"
+                    android:layout_height="1dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                        android:layout_width="1dp"
+
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="#0F1118"
+                        android:layout_height="20dp">
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="224dp"
+                    android:layout_weight="50.0"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:onClick="@{()->openMultipleAddressDialogViewModel.confirm()}"
+                    android:background="@drawable/button_yellow_gradualchange_r25"
+                    android:layout_height="48dp">
+
+
+                    <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                    >
+                        <TextView
+                                android:text="立即开通"
+                                android:textSize="16sp"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#0F1118"/>
+                    </TableRow>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

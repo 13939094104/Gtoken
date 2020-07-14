@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="walletRestoreWordModel" type="com.vtoken.application.viewModel.create.WalletRestoreWordViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bottomInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+            <TableRow
+                android:layout_width="44dp"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:layout_marginLeft="-16dp"
+                android:onClick="@{()->walletRestoreWordModel.finish()}"
+                >
+                <ImageView
+                    android:src="@drawable/icon_light_black"
+                    android:layout_width="24dp"
+
+                    android:layout_height="24dp" android:id="@+id/returnsetpsw"/>
+            </TableRow>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+                <TextView
+                        android:text="填写助记词"
+                        android:textColor="#061229"
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:text="(2/3)"
+                        android:textSize="11sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="#3C7FFF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingRight="16dp">
+                <TextView
+                        android:text="填写助记词恢复已有钱包,每个字符请用空格隔开"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView30" android:layout_weight="1"
+                        android:textColor="#828894" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->walletRestoreWordModel.initiateScan()}"
+                    android:paddingTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="8dp"
+
+                    android:background="@drawable/block_171923"
+            >
+
+                <ImageView
+
+                        android:src="@drawable/icon_saoyisao"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content" />
+                <TextView
+                        android:text="扫描二维码"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:textColor="#828894" android:textSize="12sp"/>
+            </LinearLayout>
+
+            <RelativeLayout android:orientation="vertical" android:background="#F8F8F8"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp" android:minHeight="108dp"
+
+                          >
+                <LinearLayout android:id="@+id/words_layout" android:layout_width="wrap_content"
+                              android:layout_height="wrap_content" android:minHeight="80dp">
+                    <com.vtoken.application.widget.RadioViewGroup
+                            android:id="@+id/radio_view_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginBottom="10dp"
+                            android:animateLayoutChanges="true"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"/>
+                </LinearLayout>
+                <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal"
+
+                                android:layout_width="match_parent" android:layout_height="36dp"
+                                android:layout_below="@+id/words_layout"
+                                android:paddingStart="@dimen/wallet_card_margin"
+                                android:paddingEnd="@dimen/wallet_card_margin">
+                    <TextView android:textColor="#061229"
+                              android:text="@{walletRestoreWordModel.progressHintString}"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                    <ImageView android:background="@drawable/icon_revoke"
+                               android:layout_width="28dp"
+                               android:layout_height="24dp"
+                               android:onClick="@{()->walletRestoreWordModel.revokeOne()}"
+                               android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/bottomInputLayout"
+                android:orientation="horizontal"
+                android:background="#E7E8EC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingStart="@dimen/spacing"
+                android:paddingEnd="@dimen/spacing"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+                <EditText android:textSize="14dp"
+                          android:visibility="@{walletRestoreWordModel.canInput? View.VISIBLE : View.INVISIBLE}"
+                          android:layout_gravity="center"
+                          android:layout_width="0dp"
+                          android:layout_height="40dp"
+                          android:maxLines="1"
+                          android:maxLength="32"
+                          android:layout_weight="1"
+                          android:inputType="textCapWords"
+                          android:layout_marginStart="@dimen/spacing"
+                          android:paddingLeft="@dimen/dp_16"
+                          android:text="@={walletRestoreWordModel.wordInputString}"
+                          android:hint="@{walletRestoreWordModel.countWordHintString}"
+                          android:layout_marginEnd="@dimen/spacing"
+                          style="@style/WhiteEdit"/>
+                <RelativeLayout
+                        android:layout_gravity="center"
+                        android:background="@drawable/press_change_yellow_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <TextView android:textSize="14dp"
+                              android:textStyle="bold"
+                              android:textColor="@color/white"
+                              android:paddingLeft="@dimen/dp_16"
+                              android:gravity="center"
+                              android:onClick="@{()->walletRestoreWordModel.checkAndAddWords()}"
+                              android:layout_width="80dp"
+                              android:layout_height="40dp"
+                              android:imeOptions="actionDone"
+                              android:layout_marginStart="@dimen/spacing"
+                              android:layout_marginEnd="@dimen/spacing"/>
+                    <ImageView android:background="@drawable/recover_btn_src"
+                               android:layout_width="21.2dp"
+                               android:layout_height="16.5dp"
+
+                               android:layout_centerInParent="true"/>
+                </RelativeLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

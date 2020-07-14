@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="walletCreateConfirmModel" type="com.vtoken.application.viewModel.create.WalletCreateConfirmViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:background="#FFFFFF"
+            android:fitsSystemWindows="true">
+
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:paddingLeft="16dp"
+                          android:paddingRight="16dp"
+                          android:orientation="vertical">
+                <TableRow
+                    android:layout_width="44dp"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="-16dp"
+                    android:onClick="@{()->walletCreateConfirmModel.returnStep()}"
+                    >
+                    <ImageView
+                            android:src="@drawable/icon_light_black"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" android:id="@+id/returnpage"/>
+                </TableRow>
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                >
+
+
+                    <TextView
+                            android:text="验证助记词"
+                            android:textColor="#061229"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:layout_height="wrap_content" android:id="@+id/textView20"/>
+
+                    <TextView
+                            android:text="(4/4)"
+                            android:textSize="11sp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="#3C7FFF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView25"/>
+                </TableRow>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+
+                        android:paddingRight="16dp"
+                >
+
+                    <TextView
+                            android:text="请将您抄下的12个单词按正确顺序输入至下方"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView30" android:layout_weight="1"
+                            android:textColor="#828894" android:textSize="11sp"/>
+                </LinearLayout>
+                <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/input_back_radius_20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView android:layout_width="match_parent"
+
+                              android:layout_height="130dp"
+                              android:padding="12dp"
+                              android:textColor="#646B7B"
+                              android:id="@+id/memericWordsArea"
+                              android:text="@{walletCreateConfirmModel.selectWordsString}"
+                              android:textCursorDrawable="@null"/>
+                    <ImageView
+                            android:background="@drawable/icon_revoke"
+                            android:layout_width="28dp" android:layout_height="24dp"
+                            android:layout_marginBottom="20dp"
+
+                            android:layout_below="@+id/memericWordsArea"
+                            android:onClick="@{()->walletCreateConfirmModel.revokeOne()}"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:paddingRight="16dp"
+                >
+                </LinearLayout>
+                <com.vtoken.application.widget.RadioViewGroup
+                        android:id="@+id/radio_view_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                ></com.vtoken.application.widget.RadioViewGroup>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="42dp"
+                        android:layout_height="wrap_content">
+                    <Button
+                            android:text="创建"
+                            android:textSize="16sp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/press_change_yellow_button"
+                            android:layout_width="match_parent"
+                            android:onClick="@{()->walletCreateConfirmModel.checkWordsAndJump()}"
+                            android:layout_height="wrap_content" android:id="@+id/toindex"/>
+                </LinearLayout>
+            </LinearLayout>
+
+    </LinearLayout>
+</layout>

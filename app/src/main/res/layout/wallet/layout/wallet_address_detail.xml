@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <variable name="walletAddressDetailModel" type="com.vtoken.application.viewModel.wallet.WalletAddressDetailViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/input_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/header_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/trans_back"
+            >
+            <FrameLayout
+                android:layout_width="44dp"
+                android:layout_height="56dp"
+                android:id="@+id/returnbox"
+                android:gravity="center_horizontal"
+                android:onClick="@{()->walletAddressDetailModel.finish()}"
+                >
+                <ImageView
+                    android:src="@drawable/icon_light_white"
+                    android:layout_width="24dp"
+                    android:layout_gravity="center"
+                    android:layout_height="24dp" android:id="@+id/returnIndex"/>
+            </FrameLayout>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:text="VDS地址"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/infoLayout"
+            app:layout_constraintTop_toBottomOf="@id/header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:background="@color/trans_back">
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:text="@{walletAddressDetailModel.sumBalanceString}"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    tools:text="15.1025"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="4dp">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_lock_blue"
+                        android:visibility="@{walletAddressDetailModel.hasLock?View.VISIBLE:View.GONE}"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+                    <TextView
+                        android:text="("
+                        android:textColor="@color/addressText"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="4dp"
+                        android:visibility="@{walletAddressDetailModel.hasLock?View.VISIBLE:View.GONE}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        tools:text="12.1458"
+                        android:text="@{walletAddressDetailModel.lockBalanceString}"
+                        android:textColor="@color/addressText"
+                        android:visibility="@{walletAddressDetailModel.hasLock?View.VISIBLE:View.GONE}"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text=")"
+                        android:textColor="@color/addressText"
+                        android:textSize="12sp"
+                        android:visibility="@{walletAddressDetailModel.hasLock?View.VISIBLE:View.GONE}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="@{()->walletAddressDetailModel.copyAddressString()}"
+                    android:layout_marginTop="8dp"
+                    >
+                    <TextView
+                        tools:text="ewffffffffffff"
+                        android:text="@{walletAddressDetailModel.addressString}"
+                        android:textColor="@color/addressText"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TableRow
+                        android:layout_width="26dp"
+                        android:layout_height="24dp"
+
+                        android:gravity="center_horizontal"
+                        >
+                        <ImageView
+                            android:src="@drawable/icon_copy_blue"
+                            android:layout_width="16dp"
+
+                            android:layout_marginTop="4dp"
+                            android:layout_height="16dp" />
+                    </TableRow>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="114dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/white_radius_8"
+            app:layout_constraintTop_toTopOf="@id/infoLayout"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:layout_height="46dp">
+                <RadioButton
+                    android:text="全部"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:button="@null"
+                    android:textSize="14sp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/radio_all"
+                    android:layout_weight="1"
+                    android:textColor="@drawable/wallet_transaction_detail_radiobtn_text_selector"
+                    android:background="@drawable/wallet_transaction_detail_radiobtn_back_selector"
+                    />
+                <RadioButton
+                    android:text="转入"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_width="wrap_content"
+                    android:textSize="14sp"
+
+                    android:layout_height="match_parent"
+                    android:id="@+id/radio_receive"
+                    android:textColor="@drawable/wallet_transaction_detail_radiobtn_text_selector"
+                    android:background="@drawable/wallet_transaction_detail_radiobtn_back_selector"
+                    android:layout_weight="1"/>
+                <RadioButton
+                    android:text="转出"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_width="wrap_content"
+                    android:textSize="14sp"
+                    android:id="@+id/radio_send"
+                    android:layout_height="match_parent"
+                    android:textColor="@drawable/wallet_transaction_detail_radiobtn_text_selector"
+                    android:background="@drawable/wallet_transaction_detail_radiobtn_back_selector"
+                    android:layout_weight="1"/>
+
+            </RadioGroup>
+            <androidx.recyclerview.widget.RecyclerView
+                recyclerViewAdapter="@{walletAddressDetailModel.recyclerSimpleAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:weightSum="2"
+            android:layout_height="56dp">
+
+            <Button
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="8dp"
+                android:onClick="@{()->walletAddressDetailModel.jumpToSendActivity()}"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="转帐"
+                android:background="@drawable/button_282835_r4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+
+            <Button
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_marginLeft="8dp"
+                android:onClick="@{()->walletAddressDetailModel.showAddressQrDialog()}"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="收款"
+                android:background="@drawable/button_3c7fff_r4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="importKeyModel" type="com.vtoken.application.viewModel.wallet.WalletImportKeyViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:fitsSystemWindows="true">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8"
+        >
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                          android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+
+                    >
+                    <TableRow
+                        android:layout_width="44dp"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:onClick="@{()->importKeyModel.finish()}"
+                        >
+                        <ImageView
+                            android:src="@drawable/icon_light_black"
+                            android:layout_width="24dp"
+                            android:layout_gravity="center"
+                            android:layout_height="24dp" android:id="@+id/returnIndex"/>
+                    </TableRow>
+
+                    <TextView
+                        android:text="导入私钥"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="16sp"
+                        android:textColor="#061229"/>
+                </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/wallet_bg_normal">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+android:visibility="gone"
+        android:paddingBottom="16dp"
+        android:paddingRight="16dp"
+        >
+
+        <TextView
+            android:text="私钥字符串"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="14dp"
+            android:textColor="#061229"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+
+                    android:layout_marginRight="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:textColor="#646B7B"
+                    android:hint="输入私钥字符串或扫描私钥二维码"
+                    android:textColorHint="#646B7B"
+                    android:textCursorDrawable="@null"
+                    android:textSize="14sp"
+                    android:layout_weight="90"
+                    tools:text="grrrrrrrrrrrrrrggfnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnrrrrrrrrrrrrrgrggrgrgr"
+                    android:text="@={importKeyModel.privateKeyString}"
+                    android:id="@+id/editText2ds"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <ImageView
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+
+                        android:layout_width="20dp"
+                        android:onClick="@{()-> importKeyModel.initiateScan()}"
+                        android:layout_height="20dp" android:src="@drawable/icon_saoyisao_16"
+                        android:id="@+id/scanIcon" android:layout_weight="10"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="32dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                        android:layout_height="wrap_content">
+                    <Button
+                            android:text="确定"
+                            android:textSize="16sp"
+                            android:textColor="#fff"
+                            android:background="@drawable/press_change_yellow_button"
+                            android:layout_width="match_parent"
+                            android:onClick="@{()->importKeyModel.confirmImportKey()}"
+                            android:layout_height="wrap_content" android:id="@+id/button6"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

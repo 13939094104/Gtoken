@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="walletTransactionDetailModel" type="com.vtoken.application.viewModel.wallet.WalletTransactionDetailViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/input_back"
+        android:fitsSystemWindows="true">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:background="@color/trans_back"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/llybutgtom"
+                app:layout_constraintTop_toTopOf="parent">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="@{()->walletTransactionDetailModel.finish()}"
+                    >
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_16"
+                        android:src="@drawable/icon_light_white"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:id="@+id/returnIndex"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="VDS交易详情"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trans_back">
+                <ImageView
+                    android:layout_marginTop="14dp"
+                    tools:src="@drawable/icon_success1"
+                    setTxStatusImage="@{walletTransactionDetailModel.transaction}"
+                    android:layout_width="36dp"
+                    android:layout_gravity="center"
+                    android:layout_height="36dp" />
+                <TextView
+                    tools:text="-333333333"
+                    android:text="@{walletTransactionDetailModel.transferAmount + @string/vollar}"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="76dp"
+                    android:layout_gravity="center_horizontal"
+                    tools:text="sssssssssssss"
+                    android:text="@{walletTransactionDetailModel.txStatusString}"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="-40dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/button_gray_r16">
+                <TextView
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:text="TXID"
+                    android:textColor="@color/bar_title"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txid"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/txqtcode"
+                        android:layout_marginRight="43dp"
+                        tools:text="2e2dbe036acaab84c9a24a8c58aa1c496b5066 5a71c915e91ceb9fe8f7c93ec9"
+                        android:text="@{walletTransactionDetailModel.txIdString}"
+                        android:textColor="@color/text_normal"
+                        android:textSize="12sp"
+                        android:onClick="@{()->walletTransactionDetailModel.copytxidString()}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <FrameLayout
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/txid"
+                        android:id="@+id/txqtcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->walletTransactionDetailModel.showTxidQrCodeDialog()}">
+                        <ImageView
+                            android:src="@drawable/icon_ma"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp" />
+                    </FrameLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:visibility="@{walletTransactionDetailModel.remarkShow?View.VISIBLE:View.GONE}"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:background="@drawable/light_button_back_radius_4_shape"
+                    tools:text="efefefefef"
+                    android:text="@{@string/note_header+ walletTransactionDetailModel.remarkString}"
+                    android:textColor="#646B7B"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_height="match_parent">
+                    <RadioButton
+                        android:text="发送地址"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:button="@null"
+                        android:textSize="14sp"
+                        android:layout_height="36dp"
+                        android:id="@+id/radio_from"
+                        android:layout_weight="1"
+                        android:textColor="@drawable/wallet_transaction_detail_radiobtn_text_selector"
+                        android:background="@drawable/wallet_transaction_detail_radiobtn_back_selector"
+                        />
+                    <TextView
+                        android:width="16dp"
+                        android:textColor="#C4CEE5"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:text="接收地址"
+                        android:gravity="center"
+                        android:button="@null"
+                        android:layout_width="wrap_content"
+                        android:textSize="14sp"
+
+                        android:layout_height="36dp"
+                        android:id="@+id/radio_to"
+                        android:textColor="@drawable/wallet_transaction_detail_radiobtn_text_selector"
+                        android:background="@drawable/wallet_transaction_detail_radiobtn_back_selector"
+                        android:layout_weight="1"/>
+                </RadioGroup>
+                <androidx.recyclerview.widget.RecyclerView
+                    recyclerViewAdapter="@{walletTransactionDetailModel.recyclerSimpleAdapter}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mainLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

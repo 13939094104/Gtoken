@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="vdsMain.BLOCK_CHAIN_TYPE"/>
+        <import type="vdsMain.transaction.CAmount"/>
+        <import type="android.view.View"/>
+        <variable name="generalAddress" type="com.vtoken.application.model.Address"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/chat_back_radius_8_shape">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:weightSum="100"
+                    android:background="@drawable/background_line"
+            >
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="20.0">
+                    <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp">
+                        <ImageView
+                                android:src="@drawable/icon_v_black_12"
+                                android:layout_width="12dp"
+
+                                android:layout_marginTop="6dp"
+                                android:layout_height="12dp" android:id="@+id/imageView30"/>
+                        <TextView
+
+                                android:text="@{generalAddress.unLockBalanceString}"
+                                android:textSize="16sp"
+                                android:textColor="#061229"
+                                android:layout_marginLeft="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/textView31"/>
+                        <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="13dp"
+                                android:text=""
+                                android:textColor="#18D78B"
+                                android:layout_height="wrap_content" android:layout_weight="1"/>
+                        <ImageView
+                                android:src="@drawable/icon_right_17"
+                                android:layout_width="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_height="24dp"  />
+                    </TableRow>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginTop="-6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+
+android:id="@+id/t1"
+                                android:text="@{generalAddress.nickName}"
+                                tools:text="[trhrtheeeeethheer]"
+                                android:textColor="#828894"
+                                android:textSize="13sp"
+                                android:ellipsize="middle"
+
+
+                                android:singleLine="true"
+                                android:maxWidth="60dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        <TextView
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toRightOf="@+id/t1"
+                                app:layout_constraintRight_toLeftOf="@+id/im1"
+                                android:ellipsize="middle"
+                                android:text="@{generalAddress.vaddress}"
+                                tools:text="errrregeeeeeeeeeeeeeeeeeer"
+                                android:textColor="#828894"
+                                android:textSize="13sp"
+                                android:singleLine="true"
+                                app:layout_constraintHorizontal_weight="1"
+
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content" android:id="@+id/textView32"/>
+                        <ImageView
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toRightOf="@+id/textView32"
+                                app:layout_constraintRight_toLeftOf="@+id/imageView51"
+                                android:visibility="gone"
+                                android:src="@drawable/icon_vid_label"
+                                android:layout_width="24dp"
+                                android:id="@+id/im1"
+
+                                android:layout_height="18dp" />
+                        <ImageView
+                                android:visibility="gone"
+                                android:layout_width="24dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toRightOf="@+id/im1"
+                                app:layout_constraintRight_toRightOf="@+id/t3"
+
+                                android:layout_height="18dp" android:id="@+id/imageView51" />
+                        <TextView
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toRightOf="@+id/imageView51"
+android:width="80dp"
+                                android:id="@+id/t3"
+                                android:text=""
+                                tools:text=""
+                                android:textColor="#646B7B"
+                                android:textSize="12sp"
+                                android:ellipsize="middle"
+
+
+                                android:singleLine="true"
+                                android:maxWidth="160dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+                <!--<LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/clickvxd"
+                        android:layout_weight="80.0">
+                    <ImageView
+                            android:visibility="@{generalAddress.appingVxd?View.VISIBLE:View.GONE}"
+                            android:src="@drawable/icon_vxd"
+                            android:layout_width="12dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_height="16dp" android:id="@+id/imageView51" android:layout_weight="1"/>
+                </LinearLayout>-->
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

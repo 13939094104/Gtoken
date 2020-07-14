@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="txInfo" type="vdsMain.transaction.TxInfo"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+        <RelativeLayout
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_alignParentBottom="true"
+                          android:layout_centerHorizontal="true"
+                android:background="@drawable/detailtran_row_shdow"
+                          android:orientation="vertical">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:paddingTop="24dp"
+android:gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:paddingBottom="16dp"
+                >
+
+
+                    <TextView
+                            android:text="转账信息确认"
+                            android:layout_width="wrap_content"
+
+                            android:layout_marginLeft="16dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="#000"/>
+
+                </TableRow>
+
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+
+
+
+                >
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+
+
+                            android:paddingBottom="16dp"
+
+                            android:background="@drawable/detailtran_row_shdow"
+                            android:layout_height="wrap_content">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+
+
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="发送地址"
+                                    android:textSize="14sp"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="#061229"
+                                    android:layout_height="wrap_content"
+                            />
+                            <TextView
+                                    android:layout_weight="1"
+
+                                    android:layout_width="wrap_content"
+
+                                    android:layout_height="wrap_content"
+                            />
+                        </TableRow>
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="16dp"
+
+
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="@{txInfo.sendAddress}"
+                                    android:textSize="12sp"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="#828894"
+                                    android:layout_height="wrap_content"
+                            />
+
+                            <TextView
+                                android:id="@+id/from_address"
+                                    android:layout_weight="1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                            />
+                            <TextView
+                                    android:text="@{txInfo.sumVinValue}"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="#828894"/>
+                            <ImageView
+                                    android:src="@drawable/icon_v"
+                                    android:layout_width="12dp"
+                                    android:gravity="center"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_height="match_parent"/>
+                        </TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+
+                            android:background="@drawable/detailtran_row_shdow"
+                            android:layout_height="wrap_content">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+
+
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="接收地址"
+                                    android:textSize="14sp"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="#061229"
+                                    android:layout_height="wrap_content"
+                            />
+                            <TextView
+                                    android:layout_weight="1"
+
+                                    android:layout_width="wrap_content"
+
+                                    android:layout_height="wrap_content"
+                            />
+                        </TableRow>
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="16dp"
+
+
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="@{txInfo.receiveAddress}"
+                                    android:textSize="12sp"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="#828894"
+                                    android:layout_height="wrap_content"
+                            />
+
+                            <TextView
+                                android:id="@+id/to_address"
+                                    android:layout_weight="1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                            />
+                        </TableRow>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:id="@+id/HdAddress"
+                        android:weightSum="100"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/ic_launcher_foreground">
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                    />
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:paddingRight="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:background="@drawable/background_line">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="发送数量"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:textColor="#061229"/>
+                            <TextView
+                                android:id="@+id/send_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textSize="14sp"
+                                    android:textColor="#C4CEE5"/>
+                            <TextView
+                                    android:text="@{txInfo.sendSumValue}"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="#828894"/>
+                            <ImageView
+                                    android:src="@drawable/icon_v"
+                                    android:layout_width="12dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_height="12dp"/>
+                        </TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:paddingRight="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:background="@drawable/background_line">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="手续费"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:textColor="#061229"/>
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textSize="14sp"
+                                    android:textColor="#C4CEE5"/>
+                            <TextView
+                                    android:text="@{txInfo.feeValue}"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="#828894"/>
+                            <ImageView
+                                    android:src="@drawable/icon_v"
+                                    android:layout_width="12dp"
+                                    android:gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_height="12dp"/>
+                        </TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:paddingRight="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:background="@drawable/background_line">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                            <TextView
+                                    android:text="需支付数量"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView6"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:textColor="#061229"/>
+                            <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textSize="14sp"
+                                    android:textColor="#C4CEE5"/>
+                            <TextView
+                                    android:text="@{txInfo.selfPaySumValue}"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="#828894"/>
+                            <ImageView
+                                    android:src="@drawable/icon_v"
+                                    android:layout_width="12dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_height="12dp"/>
+                        </TableRow>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:paddingLeft="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:paddingRight="16dp"
+                        android:layout_marginRight="12dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                >
+
+                    <Button
+                            android:text="确定发送"
+                            android:textColor="#fff"
+                        android:textSize="16sp"
+                            android:background="@drawable/button_yellow_gradualchange"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/confirm_btn"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

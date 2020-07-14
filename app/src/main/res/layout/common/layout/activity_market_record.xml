@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:orientation="horizontal"
+           android:gravity="center_vertical">
+
+
+           <ImageView
+               android:layout_centerVertical="true"
+               android:layout_width="24dp"
+               android:layout_height="24dp"
+               android:layout_marginLeft="10dp"
+               android:onClick="finishthis"
+               android:src="@drawable/icon_light_black" />
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="false"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_market"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="商品"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/blue_line" />
+
+                </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:clickable="true"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+                   <TextView
+                       android:id="@+id/tv_mxq"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:enabled="true"
+                       android:text="详情"
+                       android:textColor="@color/black"
+                       android:textSize="15sp" />
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:layout_marginTop="5dp"
+                       android:visibility="invisible"
+                       android:src="@drawable/blue_line" />
+
+               </LinearLayout>
+           </LinearLayout>
+
+       </LinearLayout>
+
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="1">
+<!--           <fragment-->
+<!--               android:layout_width="match_parent"-->
+<!--               android:layout_height="match_parent"-->
+<!--               android:id="@+id/market_fragment"-->
+<!--               android:name="com.vtoken.application.view.activity.work.MarketFragmet"/>-->
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:id="@+id/fragment"/>
+       </ScrollView>
+
+       <Button
+           android:layout_marginLeft="20dp"
+           android:layout_marginRight="20dp"
+           android:layout_marginBottom="10dp"
+           android:textColor="@color/white"
+           android:textSize="17sp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/press_change_yellow_button"
+           android:text="立即抢购"/>
+   </LinearLayout>
+</layout>

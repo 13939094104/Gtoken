@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="splashViewModel" type="com.vtoken.application.viewModel.SplashViewModel"/>
+    </data>
+    <RelativeLayout
+            android:tag="layout/activity_splash_0"
+            android:background="@drawable/bg_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/iv_logo"
+            android:background="@mipmap/zly_bglogo"
+            android:layout_width="80dp" android:layout_height="80dp"
+            android:layout_marginTop="150dp" android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true">
+            <!--<ProgressBar android:id="@+id/loading_progress_bar"
+                         android:layout_width="28dp"
+                         android:layout_height="28dp"
+                         android:indeterminateDrawable="@drawable/loading_color"/>
+            <TextView
+                    android:textSize="14dp"
+                    android:textColor="#89a5c1"
+                    android:gravity="center_vertical"
+                    android:text="@{splashViewModel.loadingText}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"/>-->
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

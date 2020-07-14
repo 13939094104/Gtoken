@@ -1,0 +1,380 @@
+<resources>
+    <string name="wallet_repeat_pwd_tip">重复密码</string>
+    <string name="wallet_create_pwd_format_tip">6-43位字符（大小写字母+数字组合）</string>
+    <string name="remarks_account">账户备注信息</string>
+
+
+    <string name="doc">所有参数需要转换成json字符串传输，例如：
+        &#160;&#160;&#160;&#160;var &#160;&#160;json={"msg":"sadds","callback":"addressCallback"};
+	    &#160;&#160;&#160;&#160;vdsDapp.authorizeLogin(JSON.stringify(json));
+    </string>
+    <string name="doc1">function addressCallback(result){\n
+    alert(result)\n
+}\n
+function test(){\n
+    var json={"msg":"sadds","callback":"addressCallback"};\n
+    vdsDapp.authorizeLogin(JSON.stringify(json));\n
+}
+    </string>
+    <string name="doc3">所有参数需要转换成json字符串传输，例如：
+        &#160;&#160;&#160;&#160;var &#160;&#160;json={"toAddress":"Vc8*********************","value":"0.01","callback":"sendTransactionCallback"};
+	    &#160;&#160;&#160;&#160;vdsDapp.authorizeTransaction(JSON.stringify(json));
+    </string>
+    <string name="doc4">function sendTransactionCallback(result){\n
+    alert(result)\n
+}\n
+function test(){\n
+    var json={"toAddress":"Vc8*********************","value":"0.01","callback":"sendTransactionCallback"};\n
+    vdsDapp.authorizeTransaction(JSON.stringify(json)); \n
+}
+
+    </string>
+    <string name="doc5">所有参数需要转换成json字符串传输，例如：
+        &#160;&#160;&#160;&#160;var &#160;&#160;json={"callback":"addressCallback"};
+	    &#160;&#160;&#160;&#160;vdsDapp.getAuthorizerInfo(JSON.stringify(json));
+    </string>
+    <string name="doc6">function addressCallback(result){\n
+    alert(result)\n
+}\n
+function test(){\n
+    var json={"msg":"sadds","callback":"addressCallback"};\n
+    vdsDapp.getAuthorizerInfo(JSON.stringify(json)); \n
+}
+
+    </string>
+
+    <string name="doccode">
+
+   pragma solidity ^0.4.18; \n
+
+
+/**\n
+ * @title ERC20Basic\n
+ * @dev Simpler version of ERC20 interface\n
+ * @dev see https://github.com/ethereum/EIPs/issues/179\n
+ */\n
+        contract ERC20Basic {\n
+  uint256 public totalSupply;\n
+  function balanceOf(address who) public view returns (uint256);\n
+  function transfer(address to, uint256 value) public returns (bool);\n
+  event Transfer(address indexed from, address indexed to, uint256 value);\n
+}\n
+
+/**\n
+ * @title ERC20 interface\n
+ * @dev see https://github.com/ethereum/EIPs/issues/20\n
+ */\n
+contract ERC20 is ERC20Basic {\n
+  function allowance(address owner, address spender) public view returns (uint256);\n
+  function transferFrom(address from, address to, uint256 value) public returns (bool);\n
+  function approve(address spender, uint256 value) public returns (bool);\n
+  event Approval(address indexed owner, address indexed spender, uint256 value);\n
+}\n
+
+/**\n
+ * @title SafeMath\n
+ * @dev Math operations with safety checks that throw on error\n
+ */\n
+library SafeMath {\n
+  function mul(uint256 a, uint256 b) internal pure returns (uint256) {\n
+    if (a == 0) {\n
+      return 0;\n
+    }\n
+    uint256 c = a * b;\n
+    assert(c / a == b);\n
+    return c;\n
+  }\n
+
+
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {\n
+    // assert(b &gt; 0); \n
+    uint256 c = a / b;\n
+    // assert(a == b * c + a % b);\n
+    return c;\n
+  }\n
+
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {\n
+    assert(b &#060;a);\n
+    return a - b;\n
+  }\n
+
+  function add(uint256 a, uint256 b) internal pure returns (uint256) {\n
+    uint256 c = a + b;\n
+    assert(c &gt;= a);\n
+    return c;\n
+  }\n
+}\n
+
+/**\n
+ * @title Basic token\n
+ * @dev Basic version of StandardToken, with no allowances.\n
+ */\n
+contract BasicToken is ERC20Basic {\n
+  using SafeMath for uint256;\n
+
+  mapping(address => uint256) balances;\n
+\n
+  /**\n
+  * @dev transfer token for a specified address\n
+  * @param _to The address to transfer to.\n
+  * @param _value The amount to be transferred.\n
+  */\n
+  function transfer(address _to, uint256 _value) public returns (bool) {\n
+    require(_to != address(0));\n
+    require(_value &#060;= balances[msg.sender]);\n
+
+    // SafeMath.sub will throw if there is not enough balance.\n
+    balances[msg.sender] = balances[msg.sender].sub(_value);\n
+    balances[_to] = balances[_to].add(_value);\n
+    Transfer(msg.sender, _to, _value);\n
+    return true;\n
+  }\n
+
+  /**\n
+  * @dev Gets the balance of the specified address.\n
+  * @param _owner The address to query the the balance of.\n
+  * @return An uint256 representing the amount owned by the passed address.\n
+  */\n
+  function balanceOf(address _owner) public view returns (uint256 balance) {\n
+    return balances[_owner];\n
+  }\n
+
+}\n
+        /**\n
+ * @title Standard ERC20 token\n
+ *\n
+ * @dev Implementation of the basic standard token.\n
+ * @dev https://github.com/ethereum/EIPs/issues/20\n
+ * @dev Based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol\n
+ */\n
+contract StandardToken is ERC20, BasicToken {\n
+
+  mapping (address => mapping (address => uint256)) internal allowed;\n
+
+
+  /**\n
+   * @dev Transfer tokens from one address to another\n
+   * @param _from address The address which you want to send tokens from\n
+   * @param _to address The address which you want to transfer to\n
+   * @param _value uint256 the amount of tokens to be transferred\n
+   */\n
+  function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {\n
+    require(_to != address(0));\n
+    require(_value &#060;= balances[_from]);\n
+    require(_value &#060;= allowed[_from][msg.sender]);\n
+
+    balances[_from] = balances[_from].sub(_value);\n
+    balances[_to] = balances[_to].add(_value);\n
+    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);\n
+    Transfer(_from, _to, _value);\n
+    return true;\n
+  }\n
+
+        function approve(address _spender, uint256 _value) public returns (bool) {\n
+    allowed[msg.sender][_spender] = _value;\n
+    Approval(msg.sender, _spender, _value);\n
+    return true;\n
+  }\n
+
+  /**
+   * @dev Function to check the amount of tokens that an owner allowed to a spender.\n
+   * @param _owner address The address which owns the funds.\n
+   * @param _spender address The address which will spend the funds.\n
+   * @return A uint256 specifying the amount of tokens still available for the spender.\n
+   */\n
+  function allowance(address _owner, address _spender) public view returns (uint256) {\n
+    return allowed[_owner][_spender];\n
+  }\n
+
+  /**\n
+   * approve should be called when allowed[_spender] == 0. To increment\n
+   * allowed value is better to use this function to avoid 2 calls (and wait until\n
+   * the first transaction is mined)\n
+   * From MonolithDAO Token.sol\n
+   */\n
+  function increaseApproval(address _spender, uint _addedValue) public returns (bool) {\n
+    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);\n
+    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n
+    return true;\n
+  }\n
+
+  function decreaseApproval(address _spender, uint _subtractedValue) public returns (bool) {\n
+    uint oldValue = allowed[msg.sender][_spender];\n
+    if (_subtractedValue > oldValue) {\n
+      allowed[msg.sender][_spender] = 0;\n
+    } else {\n
+      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n
+    }\n
+    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n
+    return true;\n
+  }\n
+
+}\n
+
+/**\n
+ * @title Ownable\n
+ * @dev The Ownable contract has an owner address, and provides basic authorization control\n
+ * functions, this simplifies the implementation of &quot;user permissions&quot;.\n
+ */\n
+contract Ownable {\n
+  address public owner;\n
+
+
+  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n
+
+
+  /**\n
+   * @dev The Ownable constructor sets the original `owner` of the contract to the sender\n
+   * account.\n
+   */\n
+  function Ownable() public {\n
+    owner = msg.sender;\n
+  }\n
+
+
+  /**\n
+   * @dev Throws if called by any account other than the owner.\n
+   */\n
+  modifier onlyOwner() {\n
+    require(msg.sender == owner);\n
+    _;\n
+  }\n
+
+
+  /**\n
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.\n
+   * @param newOwner The address to transfer ownership to.\n
+   */\n
+  function transferOwnership(address newOwner) public onlyOwner {\n
+    require(newOwner != address(0));\n
+    OwnershipTransferred(owner, newOwner);\n
+    owner = newOwner;\n
+  }\n
+
+}\n
+
+/**\n
+ * @title Pausable\n
+ * @dev Base contract which allows children to implement an emergency stop mechanism.\n
+ */\n
+contract Pausable is Ownable {\n
+  event PausePublic(bool newState);\n
+  event PauseOwnerAdmin(bool newState);\n
+
+  bool public pausedPublic = true;\n
+  bool public pausedOwnerAdmin = false;\n
+
+  address public admin;\n
+
+  /**\n
+   * @dev Modifier to make a function callable based on pause states.\n
+   */\n
+  modifier whenNotPaused() {\n
+    if(pausedPublic) {\n
+      if(!pausedOwnerAdmin) {\n
+        require(msg.sender == admin || msg.sender == owner);\n
+      } else {\n
+        revert();\n
+      }\n
+    }\n
+    _;\n
+  }\n
+         function pause(bool newPausedPublic, bool newPausedOwnerAdmin) onlyOwner public {\n
+    require(!(newPausedPublic == false &#038;&#038; newPausedOwnerAdmin == true));\n
+
+    pausedPublic = newPausedPublic;\n
+    pausedOwnerAdmin = newPausedOwnerAdmin;\n
+
+    PausePublic(newPausedPublic);\n
+    PauseOwnerAdmin(newPausedOwnerAdmin);\n
+  }\n
+}\n
+        contract PausableToken is StandardToken, Pausable {\n
+
+  function transfer(address _to, uint256 _value) public whenNotPaused returns (bool) {\n
+    return super.transfer(_to, _value);\n
+  }\n
+
+  function transferFrom(address _from, address _to, uint256 _value) public whenNotPaused returns (bool) {\n
+    return super.transferFrom(_from, _to, _value);\n
+  }\n
+
+  function approve(address _spender, uint256 _value) public whenNotPaused returns (bool) {\n
+    return super.approve(_spender, _value);\n
+  }\n
+
+  function increaseApproval(address _spender, uint _addedValue) public whenNotPaused returns (bool success) {\n
+    return super.increaseApproval(_spender, _addedValue);\n
+  }\n
+
+  function decreaseApproval(address _spender, uint _subtractedValue) public whenNotPaused returns (bool success) {\n
+    return super.decreaseApproval(_spender, _subtractedValue);\n
+  }\n
+}\n
+
+contract VollarToken is PausableToken {\n
+    string  public  constant name = "Vollar";\n
+    string  public  constant symbol = "VDS";\n
+    uint8   public  constant decimals = 12;\n
+
+    modifier validDestination( address to )\n
+    {\n
+        require(to != address(0x0));\n
+        require(to != address(this));\n
+        _;\n
+    }\n
+
+    function VollarToken( address _admin, uint _totalTokenAmount )\n
+    {\n
+        // assign the admin account\n
+        admin = _admin;\n
+
+        // assign the total tokens to Vollar\n
+        totalSupply = _totalTokenAmount;\n
+        balances[msg.sender] = _totalTokenAmount;\n
+        Transfer(address(0x0), msg.sender, _totalTokenAmount);\n
+    }\n
+
+    function transfer(address _to, uint _value) validDestination(_to) returns (bool)\n
+    {\n
+        return super.transfer(_to, _value);\n
+    }\n
+
+    function transferFrom(address _from, address _to, uint _value) validDestination(_to) returns (bool)\n
+    {\n
+        return super.transferFrom(_from, _to, _value);\n
+    }\n
+
+    event Burn(address indexed _burner, uint _value);\n
+
+    function burn(uint _value) returns (bool)\n
+    {\n
+        balances[msg.sender] = balances[msg.sender].sub(_value);\n
+        totalSupply = totalSupply.sub(_value);\n
+        Burn(msg.sender, _value);\n
+        Transfer(msg.sender, address(0x0), _value);\n
+        return true;\n
+    }\n
+
+    // save some gas by making only one contract call\n
+    function burnFrom(address _from, uint256 _value) returns (bool)\n
+    {\n
+        assert( transferFrom( _from, msg.sender, _value ) );\n
+        return burn(_value);\n
+    }\n
+
+    function emergencyERC20Drain( ERC20 token, uint amount ) onlyOwner {\n
+        // owner can drain tokens that are sent here by mistake\n
+        token.transfer( owner, amount );\n
+    }\n
+
+    event AdminTransferred(address indexed previousAdmin, address indexed newAdmin);\n
+
+    function changeAdmin(address newAdmin) onlyOwner {\n
+        // owner can re-assign the admin\n
+        AdminTransferred(admin, newAdmin);\n
+        admin = newAdmin;\n
+    }\n
+}\n
+    </string>
+</resources>

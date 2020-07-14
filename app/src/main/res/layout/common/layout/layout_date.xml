@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layoutDirection="ltr">
+    <com.vtoken.application.widget.NumberPickerView
+            android:id="@+id/month_picker"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:minWidth="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            app:align="CENTER"
+            app:fadingEdgeEnabled="true"
+            app:min="0"
+            app:textColor="@android:color/darker_gray"
+            app:textSize="12sp"
+            app:wheelItemCount="5"
+            app:wrapSelectorWheel="true"/>
+    <com.vtoken.application.widget.NumberPickerView
+            android:id="@+id/day_picker"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:minWidth="60dp"
+            android:layout_weight="1"
+            app:align="CENTER"
+            app:fadingEdgeEnabled="true"
+            app:min="0"
+            app:textColor="@android:color/darker_gray"
+            app:textSize="12sp" app:wheelItemCount="5"
+            app:wrapSelectorWheel="true"/>
+    <com.vtoken.application.widget.NumberPickerView
+            android:id="@+id/year_picker"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:minWidth="60dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="15dp"
+            app:align="CENTER"
+            app:fadingEdgeEnabled="true"
+            app:min="0"
+            app:textColor="@android:color/darker_gray"
+            app:textSize="12sp"
+            app:wheelItemCount="5"
+            app:wrapSelectorWheel="true"/>
+</LinearLayout>

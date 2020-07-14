@@ -1,0 +1,302 @@
+package vdsMain.tool;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
+import vdsMain.SparseArray;
+
+import java.util.HashMap;
+
+public final class ScriptOpCodes {
+
+    //f12357a
+    private static SparseArray<String> opCodeSpareArray;
+
+    /* renamed from: b */
+    private static HashMap<String, Integer> f12358b;
+
+    //m10832a
+    public static void Init() {
+        if (opCodeSpareArray == null) {
+            opCodeSpareArray = new SparseArray<>();
+            opCodeSpareArray.put(0, "0");
+            opCodeSpareArray.put(76, "OP_PUSHDATA1");
+            opCodeSpareArray.put(77, "OP_PUSHDATA2");
+            opCodeSpareArray.put(78, "OP_PUSHDATA4");
+            opCodeSpareArray.put(79, "1NEGATE");
+            opCodeSpareArray.put(80, "RESERVED");
+            opCodeSpareArray.put(81, "1");
+            opCodeSpareArray.put(82, "2");
+            opCodeSpareArray.put(83, "3");
+            opCodeSpareArray.put(84, "4");
+            opCodeSpareArray.put(85, "5");
+            opCodeSpareArray.put(86, "6");
+            opCodeSpareArray.put(87, "7");
+            opCodeSpareArray.put(88, "8");
+            opCodeSpareArray.put(89, "9");
+            opCodeSpareArray.put(90, "10");
+            opCodeSpareArray.put(91, "11");
+            opCodeSpareArray.put(92, "12");
+            opCodeSpareArray.put(93, "13");
+            opCodeSpareArray.put(94, "14");
+            opCodeSpareArray.put(95, "15");
+            opCodeSpareArray.put(96, "16");
+            opCodeSpareArray.put(97, "NOP");
+            opCodeSpareArray.put(98, "VER");
+            opCodeSpareArray.put(99, "IF");
+            opCodeSpareArray.put(100, "NOTIF");
+            opCodeSpareArray.put(101, "VERIF");
+            opCodeSpareArray.put(102, "VERNOTIF");
+            opCodeSpareArray.put(103, "ELSE");
+            opCodeSpareArray.put(104, "ENDIF");
+            opCodeSpareArray.put(105, "VERIFY");
+            opCodeSpareArray.put(106, "RETURN");
+            opCodeSpareArray.put(107, "TOALTSTACK");
+            opCodeSpareArray.put(108, "FROMALTSTACK");
+            opCodeSpareArray.put(109, "2DROP");
+            opCodeSpareArray.put(110, "2DUP");
+            opCodeSpareArray.put(111, "3DUP");
+            opCodeSpareArray.put(112, "2OVER");
+            opCodeSpareArray.put(113, "2ROT");
+            opCodeSpareArray.put(114, "2SWAP");
+            opCodeSpareArray.put(115, "IFDUP");
+            opCodeSpareArray.put(116, "DEPTH");
+            opCodeSpareArray.put(117, "DROP");
+            opCodeSpareArray.put(118, "DUP");
+            opCodeSpareArray.put(119, "NIP");
+            opCodeSpareArray.put(120, "OVER");
+            opCodeSpareArray.put(121, "PICK");
+            opCodeSpareArray.put(122, "ROLL");
+            opCodeSpareArray.put(123, "ROT");
+            opCodeSpareArray.put(124, "SWAP");
+            opCodeSpareArray.put(125, "TUCK");
+            opCodeSpareArray.put(126, "CAT");
+            opCodeSpareArray.put(127, "SUBSTR");
+            opCodeSpareArray.put(128, "LEFT");
+            opCodeSpareArray.put(129, "RIGHT");
+            opCodeSpareArray.put(130, "SIZE");
+            opCodeSpareArray.put(131, "INVERT");
+            opCodeSpareArray.put(132, "AND");
+            opCodeSpareArray.put(133, "OR");
+            opCodeSpareArray.put(134, "XOR");
+            opCodeSpareArray.put(135, "EQUAL");
+            opCodeSpareArray.put(136, "EQUALVERIFY");
+            opCodeSpareArray.put(137, "RESERVED1");
+            opCodeSpareArray.put(138, "RESERVED2");
+            opCodeSpareArray.put(139, "1ADD");
+            opCodeSpareArray.put(140, "1SUB");
+            opCodeSpareArray.put(141, "2MUL");
+            opCodeSpareArray.put(142, "2DIV");
+            opCodeSpareArray.put(143, "NEGATE");
+            opCodeSpareArray.put(144, "ABS");
+            opCodeSpareArray.put(145, "NOT");
+            opCodeSpareArray.put(146, "0NOTEQUAL");
+            opCodeSpareArray.put(147, "ADD");
+            opCodeSpareArray.put(148, "SUB");
+            opCodeSpareArray.put(149, "MUL");
+            opCodeSpareArray.put(150, "DIV");
+            opCodeSpareArray.put(151, "MOD");
+            opCodeSpareArray.put(152, "LSHIFT");
+            opCodeSpareArray.put(153, "RSHIFT");
+            opCodeSpareArray.put(154, "BOOLAND");
+            opCodeSpareArray.put(155, "BOOLOR");
+            opCodeSpareArray.put(156, "NUMEQUAL");
+            opCodeSpareArray.put(157, "NUMEQUALVERIFY");
+            opCodeSpareArray.put(158, "NUMNOTEQUAL");
+            opCodeSpareArray.put(159, "LESSTHAN");
+            opCodeSpareArray.put(160, "GREATERTHAN");
+            opCodeSpareArray.put(161, "LESSTHANOREQUAL");
+            opCodeSpareArray.put(162, "GREATERTHANOREQUAL");
+            opCodeSpareArray.put(163, "MIN");
+            opCodeSpareArray.put(164, "MAX");
+            opCodeSpareArray.put(165, "WITHIN");
+            opCodeSpareArray.put(166, "RIPEMD160");
+            opCodeSpareArray.put(167, "SHA1");
+            opCodeSpareArray.put(168, "SHA256");
+            opCodeSpareArray.put(169, "OP_HASH160");
+            opCodeSpareArray.put(170, "OP_HASH256");
+            opCodeSpareArray.put(171, "OP_CODESEPARATOR");
+            opCodeSpareArray.put(172, "OP_CHECKSIG");
+            opCodeSpareArray.put(173, "OP_CHECKSIGVERIFY");
+            opCodeSpareArray.put(174, "OP_CHECKMULTISIG");
+            opCodeSpareArray.put(175, "OP_CHECKMULTISIGVERIFY");
+            opCodeSpareArray.put(176, "NOP1");
+            opCodeSpareArray.put(177, "NOP2");
+            opCodeSpareArray.put(178, "NOP3");
+            opCodeSpareArray.put(179, "NOP4");
+            opCodeSpareArray.put(180, "NOP5");
+            opCodeSpareArray.put(181, "NOP6");
+            opCodeSpareArray.put(182, "NOP7");
+            opCodeSpareArray.put(183, "NOP8");
+            opCodeSpareArray.put(184, "NOP9");
+            opCodeSpareArray.put(185, "OP_NOP10");
+            opCodeSpareArray.put(ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION, "OP_SMALLINTEGER");
+            opCodeSpareArray.put(251, "OP_PUBKEYS");
+            opCodeSpareArray.put(253, "OP_PUBKEYHASH");
+            opCodeSpareArray.put(254, "OP_PUBKEY");
+            opCodeSpareArray.put(255, "OP_INVALIDOPCODE");
+            opCodeSpareArray.put(193, "OP_CREATE");
+            opCodeSpareArray.put(194, "OP_CALL");
+            opCodeSpareArray.put(195, "OP_SPEND");
+            opCodeSpareArray.put(245, "OP_GAS_PRICE");
+            opCodeSpareArray.put(246, "OP_VERSION");
+            opCodeSpareArray.put(247, "OP_GAS_LIMIT");
+            opCodeSpareArray.put(248, "OP_DATA");
+            opCodeSpareArray.put(249, "OP_SMALLDATA");
+            opCodeSpareArray.put(255, "OP_INVALIDOPCODE");
+        }
+        if (f12358b == null) {
+            f12358b = new HashMap<>();
+            f12358b.put("0", Integer.valueOf(0));
+            f12358b.put("OP_PUSHDATA1", Integer.valueOf(76));
+            f12358b.put("OP_PUSHDATA2", Integer.valueOf(77));
+            f12358b.put("OP_PUSHDATA4", Integer.valueOf(78));
+            f12358b.put("1NEGATE", Integer.valueOf(79));
+            f12358b.put("RESERVED", Integer.valueOf(80));
+            f12358b.put("1", Integer.valueOf(81));
+            f12358b.put("2", Integer.valueOf(82));
+            f12358b.put("3", Integer.valueOf(83));
+            f12358b.put("4", Integer.valueOf(84));
+            f12358b.put("5", Integer.valueOf(85));
+            f12358b.put("6", Integer.valueOf(86));
+            f12358b.put("7", Integer.valueOf(87));
+            f12358b.put("8", Integer.valueOf(88));
+            f12358b.put("9", Integer.valueOf(89));
+            f12358b.put("10", Integer.valueOf(90));
+            f12358b.put("11", Integer.valueOf(91));
+            f12358b.put("12", Integer.valueOf(92));
+            f12358b.put("13", Integer.valueOf(93));
+            f12358b.put("14", Integer.valueOf(94));
+            f12358b.put("15", Integer.valueOf(95));
+            f12358b.put("16", Integer.valueOf(96));
+            f12358b.put("NOP", Integer.valueOf(97));
+            f12358b.put("VER", Integer.valueOf(98));
+            f12358b.put("IF", Integer.valueOf(99));
+            f12358b.put("NOTIF", Integer.valueOf(100));
+            f12358b.put("VERIF", Integer.valueOf(101));
+            f12358b.put("VERNOTIF", Integer.valueOf(102));
+            f12358b.put("ELSE", Integer.valueOf(103));
+            f12358b.put("ENDIF", Integer.valueOf(104));
+            f12358b.put("VERIFY", Integer.valueOf(105));
+            f12358b.put("RETURN", Integer.valueOf(106));
+            f12358b.put("TOALTSTACK", Integer.valueOf(107));
+            f12358b.put("FROMALTSTACK", Integer.valueOf(108));
+            f12358b.put("2DROP", Integer.valueOf(109));
+            f12358b.put("2DUP", Integer.valueOf(110));
+            f12358b.put("3DUP", Integer.valueOf(111));
+            f12358b.put("2OVER", Integer.valueOf(112));
+            f12358b.put("2ROT", Integer.valueOf(113));
+            f12358b.put("2SWAP", Integer.valueOf(114));
+            f12358b.put("IFDUP", Integer.valueOf(115));
+            f12358b.put("DEPTH", Integer.valueOf(116));
+            f12358b.put("DROP", Integer.valueOf(117));
+            f12358b.put("DUP", Integer.valueOf(118));
+            f12358b.put("NIP", Integer.valueOf(119));
+            f12358b.put("OVER", Integer.valueOf(120));
+            f12358b.put("PICK", Integer.valueOf(121));
+            f12358b.put("ROLL", Integer.valueOf(122));
+            f12358b.put("ROT", Integer.valueOf(123));
+            f12358b.put("SWAP", Integer.valueOf(124));
+            f12358b.put("TUCK", Integer.valueOf(125));
+            f12358b.put("CAT", Integer.valueOf(126));
+            f12358b.put("SUBSTR", Integer.valueOf(127));
+            f12358b.put("LEFT", Integer.valueOf(128));
+            f12358b.put("RIGHT", Integer.valueOf(129));
+            f12358b.put("SIZE", Integer.valueOf(130));
+            f12358b.put("INVERT", Integer.valueOf(131));
+            f12358b.put("AND", Integer.valueOf(132));
+            f12358b.put("OR", Integer.valueOf(133));
+            f12358b.put("XOR", Integer.valueOf(134));
+            f12358b.put("EQUAL", Integer.valueOf(135));
+            f12358b.put("EQUALVERIFY", Integer.valueOf(136));
+            f12358b.put("RESERVED1", Integer.valueOf(137));
+            f12358b.put("RESERVED2", Integer.valueOf(138));
+            f12358b.put("1ADD", Integer.valueOf(139));
+            f12358b.put("1SUB", Integer.valueOf(140));
+            f12358b.put("2MUL", Integer.valueOf(141));
+            f12358b.put("2DIV", Integer.valueOf(142));
+            f12358b.put("NEGATE", Integer.valueOf(143));
+            f12358b.put("ABS", Integer.valueOf(144));
+            f12358b.put("NOT", Integer.valueOf(145));
+            f12358b.put("0NOTEQUAL", Integer.valueOf(146));
+            f12358b.put("ADD", Integer.valueOf(147));
+            f12358b.put("SUB", Integer.valueOf(148));
+            f12358b.put("MUL", Integer.valueOf(149));
+            f12358b.put("DIV", Integer.valueOf(150));
+            f12358b.put("MOD", Integer.valueOf(151));
+            f12358b.put("LSHIFT", Integer.valueOf(152));
+            f12358b.put("RSHIFT", Integer.valueOf(153));
+            f12358b.put("BOOLAND", Integer.valueOf(154));
+            f12358b.put("BOOLOR", Integer.valueOf(155));
+            f12358b.put("NUMEQUAL", Integer.valueOf(156));
+            f12358b.put("NUMEQUALVERIFY", Integer.valueOf(157));
+            f12358b.put("NUMNOTEQUAL", Integer.valueOf(158));
+            f12358b.put("LESSTHAN", Integer.valueOf(159));
+            f12358b.put("GREATERTHAN", Integer.valueOf(160));
+            f12358b.put("LESSTHANOREQUAL", Integer.valueOf(161));
+            f12358b.put("GREATERTHANOREQUAL", Integer.valueOf(162));
+            f12358b.put("MIN", Integer.valueOf(163));
+            f12358b.put("MAX", Integer.valueOf(164));
+            f12358b.put("WITHIN", Integer.valueOf(165));
+            f12358b.put("RIPEMD160", Integer.valueOf(166));
+            f12358b.put("SHA1", Integer.valueOf(167));
+            f12358b.put("SHA256", Integer.valueOf(168));
+            f12358b.put("OP_HASH160", Integer.valueOf(169));
+            f12358b.put("OP_HASH256", Integer.valueOf(170));
+            f12358b.put("CODESEPARATOR", Integer.valueOf(171));
+            f12358b.put("OP_CHECKSIG", Integer.valueOf(172));
+            f12358b.put("OP_CHECKSIGVERIFY", Integer.valueOf(173));
+            f12358b.put("OP_CHECKMULTISIG", Integer.valueOf(174));
+            f12358b.put("OP_CHECKMULTISIGVERIFY", Integer.valueOf(175));
+            f12358b.put("NOP1", Integer.valueOf(176));
+            f12358b.put("NOP2", Integer.valueOf(177));
+            f12358b.put("NOP3", Integer.valueOf(178));
+            f12358b.put("NOP4", Integer.valueOf(179));
+            f12358b.put("NOP5", Integer.valueOf(180));
+            f12358b.put("NOP6", Integer.valueOf(181));
+            f12358b.put("NOP7", Integer.valueOf(182));
+            f12358b.put("NOP8", Integer.valueOf(183));
+            f12358b.put("NOP9", Integer.valueOf(184));
+            f12358b.put("NOP10", Integer.valueOf(185));
+            f12358b.put("OP_SMALLINTEGER", Integer.valueOf(ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION));
+            f12358b.put("OP_PUBKEYS", Integer.valueOf(251));
+            f12358b.put("OP_PUBKEYHASH", Integer.valueOf(253));
+            f12358b.put("OP_PUBKEY", Integer.valueOf(254));
+            f12358b.put("OP_INVALIDOPCODE", Integer.valueOf(255));
+            f12358b.put("OP_CREATE", Integer.valueOf(193));
+            f12358b.put("OP_CALL", Integer.valueOf(194));
+            f12358b.put("OP_SPEND", Integer.valueOf(195));
+            f12358b.put("OP_GAS_PRICE", Integer.valueOf(245));
+            f12358b.put("OP_VERSION", Integer.valueOf(246));
+            f12358b.put("OP_GAS_LIMIT", Integer.valueOf(247));
+            f12358b.put("OP_DATA", Integer.valueOf(248));
+            f12358b.put("OP_SMALLDATA", Integer.valueOf(249));
+            f12358b.put("OP_INVALIDOPCODE", Integer.valueOf(255));
+        }
+    }
+
+    /* renamed from: a */
+    public static String m10831a(int i) {
+        Init();
+        int i2 = i & 255;
+        if (opCodeSpareArray.isNotNull(i2)) {
+            return (String) opCodeSpareArray.get(i2);
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("NON_OP(");
+        sb.append(i2);
+        sb.append(")");
+        return sb.toString();
+    }
+
+    /* renamed from: b */
+    public static String m10833b(int i) {
+        Init();
+        if (opCodeSpareArray.isNotNull(i)) {
+            return (String) opCodeSpareArray.get(i);
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("PUSHDATA(");
+        sb.append(i);
+        sb.append(")");
+        return sb.toString();
+    }
+}

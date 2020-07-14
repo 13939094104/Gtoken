@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="usdtSendTranslationViewModel"
+            type="com.vtoken.application.viewModel.wallet.EthSendTransactionViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F8F8F8"
+            android:fitsSystemWindows="true">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/mainLayout"
+                      app:layout_constraintTop_toTopOf="parent"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/trans_back"
+                >
+                <TableRow
+                    android:layout_width="44dp"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:id="@+id/returnpage"
+                    android:onClick="@{()->usdtSendTranslationViewModel.finish()}"
+                    >
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="17dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_light_white" />
+                </TableRow>
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@{usdtSendTranslationViewModel.titleString}"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="16sp"
+                    android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+                android:paddingLeft="16dp"
+
+
+
+                android:background="@color/trans_back">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#171923">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+
+                        android:weightSum="100"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+android:layout_marginTop="-45dp"
+
+                    android:paddingBottom="16dp"
+                android:background="@drawable/bg_r8_bfff">
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+
+                            android:weightSum="100"
+                        >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp">
+
+                                <TextView
+                                    android:text="转账数量"
+                                    android:textSize="14sp"
+                                    android:textColor="#061229"
+                                    android:singleLine="true"
+                                    android:id="@+id/test"
+                                    android:maxWidth="120dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="13dp"
+                                    android:text=""
+                                    android:textColor="#18D78B"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+
+                            </TableRow>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_marginTop="16dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="14sp"
+                                    android:background="@null"
+
+                                    android:textCursorDrawable="@null"
+                                    android:textColorHint="#646B7B"
+                                    android:hint="请输入转账金额"
+                                    android:textColor="#646B7B"
+                                    android:text="@={usdtSendTranslationViewModel.transferValueString}"
+                                    />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="13dp"
+                                    android:text=""
+                                    android:textColor="#18D78B"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+                                <TextView
+                                    android:text="@{usdtSendTranslationViewModel.contractTokenName}"
+                                    android:textSize="14sp"
+                                    android:textColor="#C4CEE5"
+                                    android:singleLine="true"
+                                    android:maxWidth="120dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                            </LinearLayout>
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="19dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:text="可用:"
+                                    android:textColor="#646B7B"
+                                    android:textSize="12sp" />
+                                <TextView
+                                    android:text="@{usdtSendTranslationViewModel.balanceString}"
+                                    android:textSize="12sp"
+                                    android:textColor="#646B7B"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                <TextView
+                                    android:onClick="@{()->usdtSendTranslationViewModel.transferAll()}"
+                                    android:text="全部"
+                                    android:textSize="12sp"
+                                    android:textColor="#3C7FFF"
+
+                                    android:gravity="center"
+                                    android:minWidth="16dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+
+                            </TableRow>
+
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:visibility="gone"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_height="wrap_content">
+
+
+                                <TextView
+                                    android:visibility="invisible"
+                                        android:text="≈1254381.5545CNY"
+                                        android:textSize="12sp"
+                                        android:textColor="#3D424F"
+                                        android:layout_marginTop="8dp"
+                                        android:gravity="center"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#171923">
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+
+
+                    android:paddingBottom="4dp"
+                android:background="@drawable/bg_r8_bfff">
+
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                      >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+
+                            android:weightSum="100"
+                            >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp">
+
+                                <TextView
+                                        android:text="接收地址"
+                                        android:textSize="14sp"
+                                        android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+                                <ImageView
+                                        android:onClick="@{()->usdtSendTranslationViewModel.initiateScan()}"
+                                        android:src="@drawable/icon_saoyisao_16"
+                                        android:layout_width="16dp"
+
+
+                                        android:layout_gravity="center"
+                                        android:layout_height="24dp"/>
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:layout_height="wrap_content">
+
+                                <EditText
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="textPersonName"
+                                        android:textSize="14sp"
+android:background="@null"
+                                        android:textCursorDrawable="@null"
+                                        android:textColorHint="#828894"
+                                        android:hint="@{usdtSendTranslationViewModel.tipString}"
+                                        android:textColor="#646B7B"
+                                        android:text="@={usdtSendTranslationViewModel.toAddressString}"
+                                />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingBottom="4dp"
+                android:background="#171923">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#171923">
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                    >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp">
+
+                                <TextView
+                                        android:text="备注信息"
+                                        android:textSize="14sp"
+                                        android:textColor="#646B7B"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:layout_height="wrap_content">
+
+                                <EditText
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="textPersonName"
+                                        android:textSize="14sp"
+                                        android:background="#171923"
+
+                                        android:textCursorDrawable="@null"
+                                        android:textColorHint="#646B7B"
+                                        android:hint="可不填写"
+                                        android:textColor="#C4CEE5"
+
+                                        android:text=""
+                                />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:paddingLeft="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+
+                    android:paddingBottom="4dp"
+                android:background="@drawable/bg_r8_bfff">
+
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                      >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+
+                            android:weightSum="100"
+                    >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp">
+
+                                <TextView
+                                        android:text="矿工费用"
+                                        android:textSize="14sp"
+                                        android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:textSize="14sp"
+
+                                    android:textColor="#828894"
+                                    android:text="@{usdtSendTranslationViewModel.minerFee}"
+                                    />
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="textPersonName"
+                                        android:textSize="14sp"
+
+                                        android:enabled="false"
+                                        android:textCursorDrawable="@null"
+                                        android:textColorHint="#828894"
+                                        android:hint="输入矿工费用"
+                                        android:textColor="#828894"
+                                        android:text=" ETH"
+                                />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:onClick="@{()->usdtSendTranslationViewModel.checkTransferEth()}"
+                    android:layout_width="match_parent"
+                android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+
+                    android:background="@drawable/press_change_yellow_button"
+                    android:layout_height="48dp">
+
+
+                <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                >
+                    <TextView
+                            android:text="确定"
+                            android:textSize="16sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"/>
+                </TableRow>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

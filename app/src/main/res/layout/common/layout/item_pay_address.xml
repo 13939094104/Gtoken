@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewAddress" type="com.vtoken.application.model.Address"/>
+    </data>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:background="#171923"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:textSize="12sp"
+                  android:textColor="#646B7B"
+                  android:ellipsize="middle"
+                  android:gravity="center_vertical"
+                  android:focusable="true"
+                  android:layout_width="0dp"
+                  android:layout_height="40dp"
+                  android:layout_marginLeft="9dp"
+                  android:singleLine="true"
+                  android:layout_weight="1"
+                  android:text="@{viewAddress.vaddress}"
+                  android:marqueeRepeatLimit="marquee_forever"
+                  android:paddingStart="5dp"/>
+        <TextView android:textSize="14dp"
+                  android:textColor="@color/wallet_yellow"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+            android:paddingRight="37dp"
+                  android:minHeight="16dp"
+                  android:text="@{viewAddress.balance}"
+                  android:layout_marginStart="5dp"
+                  android:layout_marginEnd="5dp"/>
+    </LinearLayout>
+</layout>

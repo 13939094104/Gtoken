@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="walletSendChooseUtxoModel" type="com.vtoken.application.viewModel.wallet.WalletSendChooseUtxoViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@color/input_back">
+
+        <RelativeLayout
+            android:id="@+id/header_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_light_black"
+                android:layout_width="24dp"
+                android:layout_marginLeft="12dp"
+                android:onClick="@{()->walletSendChooseUtxoModel.cancelAndReturn()}"
+                android:layout_height="24dp" android:id="@+id/returnpage"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="选择UTXO"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textSize="16sp"
+                android:textColor="@color/bar_title"/>
+            <TextView
+                android:onClick="@{()->walletSendChooseUtxoModel.selectAll()}"
+                android:layout_marginRight="@dimen/dp_16"
+                android:textColor="@color/resync_back_selected"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="全选"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                recyclerViewAdapter="@{walletSendChooseUtxoModel.recyclerSimpleAdapter}"
+                app:layout_constraintBottom_toTopOf="@id/comformLayout"
+                app:layout_constraintTop_toBottomOf="@id/header_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/comformLayout"
+            android:layout_width="match_parent"
+            android:layout_height="46dp">
+            <LinearLayout
+                android:layout_width="146dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:paddingTop="6dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        tools:text="20.333"
+                        android:text="@{walletSendChooseUtxoModel.selectedUtxoTip}"
+                        android:textColor="@color/bar_title"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_v_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <TextView
+                    android:text="合计"
+                    android:textColor="@color/text_normal"
+                    android:layout_marginTop="2dp"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                android:background="@color/resync_back_selected"
+                android:layout_width="match_parent"
+                android:onClick="@{()->walletSendChooseUtxoModel.successAndReturn()}"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

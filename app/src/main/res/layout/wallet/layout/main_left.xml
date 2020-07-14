@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.view.View" />
+        <variable name="walletLeftMainModel" type="com.vtoken.application.viewModel.wallet.WalletLeftMainViewModel"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_marginTop="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/bg_head_30"
+                android:layout_width="36dp"
+                android:layout_height="36dp" />
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                tools:text="钱包标签"
+                android:textColor="@color/bar_title"
+                android:text="@{walletLeftMainModel.walletLabel}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <FrameLayout
+                android:onClick="@{()->walletLeftMainModel.changeWalletLabel()}"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:paddingRight="8dp">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_edit1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/light_button_back_radius_8_shape">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginLeft="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="区块同步数量"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="@color/bar_title"/>
+                <TextView
+                    android:id="@+id/curBlock"
+                    tools:text="5000"
+                    android:text="0"
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="@color/resync_back_selected"/>
+                <TextView
+                    android:text="/"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="@color/text_normal"/>
+                <TextView
+                    android:id="@+id/maxBlock"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="@color/text_normal"
+                    />
+                <ProgressBar android:id="@+id/loading_progress_bar"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:indeterminateDrawable="@drawable/loading_color"/>
+                <TextView
+
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="#646B7B"/>
+                <ImageView
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:src="@drawable/icon_again"
+                    android:onClick="@{()->walletLeftMainModel.refreshNetwork()}"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"/>
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:id="@+id/syncProgress"
+                android:layout_marginTop="12dp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:progressDrawable="@drawable/progress_sync"
+                android:progress="0"
+                android:max="100" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:paddingBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:visibility="@{walletLeftMainModel.hasPeerInfo?View.VISIBLE:View.GONE}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="24dp"
+                    >
+                    <TextView
+                        android:text="内核版本"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="10sp"
+                        android:textColor="#646B7B"/>
+                    <TextView
+                        android:text="@{walletLeftMainModel.peerVersion}"
+                        android:layout_marginLeft="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="#646B7B"/>
+                </LinearLayout>
+
+                <TextView
+                    android:text="APP版本"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#646B7B"/>
+
+                <TextView
+                    android:text="@{walletLeftMainModel.versionName}"
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#646B7B"/>
+
+            </TableRow>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_16"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:onClick="@{()->walletLeftMainModel.jumpWalletPwdActivity()}">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:src="@drawable/icon_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="56dp"
+                    android:layout_centerVertical="true"
+                    android:text="钱包密码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/bar_title"/>
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_light_gray"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:onClick="@{()->walletLeftMainModel.showReSyncChainActivity()}">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:src="@drawable/icon_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="56dp"
+                    android:layout_centerVertical="true"
+                    android:text="交易数据重载"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/bar_title"/>
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_light_gray"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:onClick="@{()->walletLeftMainModel.toChangeAccout()}">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:src="@drawable/icon_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="56dp"
+                    android:layout_centerVertical="true"
+                    android:text="切换钱包"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/bar_title"/>
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_light_gray"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>

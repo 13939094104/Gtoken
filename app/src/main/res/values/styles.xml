@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+
+    <style name="WhiteEdit">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:textColorHint">@color/item_blue_text</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="AddressMenu_Option">
+        <item name="android:textSize">13dp</item>
+        <item name="android:gravity">left|center_horizontal|clip_horizontal</item>
+        <item name="android:layout_gravity">left|center_horizontal|clip_horizontal</item>
+        <item name="android:tag">skin:menu_text_selector:textColor</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">112.5dp</item>
+    </style>
+
+    <style name="PopupAnimation" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
+    </style>
+    <style name="DialogNoAnimation">
+        <item name="android:windowEnterAnimation">@anim/no_animation</item>
+        <item name="android:windowExitAnimation">@anim/no_animation</item>
+    </style>
+    <style name="ActionBar.Transparent.TMessages.Item" parent="android:TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TransparentDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="commonMargin">12dp</dimen>
+    <dimen name="dp_16">16sp</dimen>
+    <dimen name="wallet_card_margin">15dp</dimen>
+    <dimen name="spacing">8dp</dimen>
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ethTransaction"
+            type="com.vtoken.application.model.EthTransaction" />
+    </data>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/dp_16"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:src="@{ethTransaction.type==0?@drawable/icon_into_1:@drawable/icon_out_1}"
+            tools:src="@drawable/icon_into_1" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="16dp"
+            android:weightSum="100"
+            android:background="@drawable/background_line">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="20.0">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <TextView
+                        android:text="@{ethTransaction.type==0?ethTransaction.from:ethTransaction.to}"
+                        android:textSize="14sp"
+                        android:textColor="@color/bar_title"
+                        android:singleLine="true"
+                        android:ellipsize="middle"
+                        tools:text="0xa5afbaca378253a35afd8913995056b83595357c"
+                        android:maxWidth="160dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:text=""
+                        android:textColor="#18D78B"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:text="@{ethTransaction.valueFormat}"
+                        android:textSize="14sp"
+                        android:textColor="@{ethTransaction.type==0?@color/resync_back_selected:@color/bar_title}"
+                        android:layout_marginLeft="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@{ethTransaction.dateFormat}"
+                        android:textColor="@color/text_normal"
+                        android:textSize="12sp"
+                        android:ellipsize="middle"
+                        tools:text="2019-08-09  18:20"
+                        android:layout_marginTop="4dp"
+                        android:singleLine="true"
+                        android:maxWidth="200dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:text=""
+                        android:textColor="#18D78B"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:text="完成"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_normal"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:minWidth="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

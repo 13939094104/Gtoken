@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="validatePwdModel" type="com.vtoken.application.viewModel.ValidatePwdViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:id="@+id/teod"
+            android:gravity="center_horizontal">
+        <LinearLayout
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="328dp"
+                android:paddingRight="22dp"
+                android:paddingTop="12dp"
+                android:paddingLeft="22dp"
+                android:background="@drawable/detailtran_qtcode_dialogshdow"
+                android:layout_height="287dp">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="right"
+                    android:paddingRight="-8dp"
+                    android:layout_height="wrap_content">
+                <ImageView
+                    android:onClick="@{()->validatePwdModel.finish()}"
+                        android:src="@drawable/icon_key_popup_close"
+                        android:layout_width="36dp"
+                        android:layout_height="32dp"
+
+                />
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/chainIcon"
+                        android:src="@drawable/icon_eth"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+
+                />
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:id="@+id/chainTip"
+                        android:text="导出ETH公链地址私钥"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <EditText
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center"
+                    android:background="@drawable/input_r4_bf5f8ff"
+                    android:textColor="#646B7B"
+                    android:textSize="16sp"
+                    android:paddingLeft="12dp"
+                    android:textCursorDrawable="@null"
+                    android:hint="输入钱包密码"
+                    android:textColorHint="#646B7B"
+                    android:inputType="textPassword"
+                    android:text="@={validatePwdModel.pwdInputString}"
+                    android:id="@+id/editText"/>
+            <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@{validatePwdModel.errorString}"
+                    android:textSize="12sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TableRow
+                    android:onClick="@{()->validatePwdModel.confirm()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/press_change_yellow_button"
+                    android:gravity="center"
+            >
+
+                <TextView
+                        android:text="确定"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="4dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </TableRow>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

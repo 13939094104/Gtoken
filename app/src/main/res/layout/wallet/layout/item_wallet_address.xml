@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/card_view" android:tag="layout/item_wallet_address_0" android:background="@color/wallet_card" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9dp" android:minHeight="62.5dp" app:cardBackgroundColor="@color/wallet_card" app:cardCornerRadius="7.5dp">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@+id/address_layout" android:paddingTop="15dp" android:paddingBottom="9dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10dp" android:paddingEnd="10dp">
+            <LinearLayout android:gravity="center" android:id="@+id/top_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="18dp" android:textColor="@color/balance" android:tag="binding_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="19dp"/>
+                <LinearLayout android:layout_gravity="top" android:tag="binding_2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ImageView android:id="@+id/tx_icon" android:layout_width="16dp" android:layout_height="14dp"/>
+                    <TextView android:textSize="11dp" android:textColor="@color/wallet_yellow" android:gravity="center_vertical" android:id="@+id/tx_value" android:background="@drawable/tx_bg" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingStart="2dp" android:paddingEnd="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:textSize="11dp" android:textColor="@color/wallet_gray" android:tag="binding_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_below="@+id/top_layout" android:layout_marginEnd="15dp"/>
+            <ImageView android:id="@+id/right_image" android:paddingTop="5dp" android:paddingBottom="5dp" android:layout_width="12dp" android:layout_height="20dp" android:src="@mipmap/wallet_address_item_right" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+        <ImageView android:tag="binding_4" android:layout_width="20dp" android:layout_height="20dp" android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

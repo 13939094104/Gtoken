@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt">
+    <data>
+
+    </data>
+
+    <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/block_171923"
+                android:layout_width="309.5dp"
+                android:layout_height="251dp"
+                android:paddingStart="@dimen/wallet_card_margin"
+                android:paddingEnd="@dimen/wallet_card_margin">
+
+            <TextView
+                    android:text="提示"
+                    android:textSize="18sp"
+                    android:textColor="@color/bar_title"
+                    android:gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+
+            <TextView
+                    android:textSize="12dp"
+                    android:text="请设置从原始钱包中恢复地址的数量"
+                    android:textColor="#3C7FFF"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="18dp"
+                    android:layout_height="wrap_content" />
+
+            <TextView
+                    android:textSize="12dp"
+                    android:textColor="#646B7B"
+                    android:text="自动恢复HD账户，需要重新创建或导入原有的签名地
+址。等待区块同步后，您可以恢复原始资金。"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" />
+
+            <EditText
+
+                    android:id="@+id/common_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:singleLine="true"
+                    android:hint="恢复地址数量"
+                android:gravity="center"
+                    android:textColorHint="#646B7B"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#646B7B"
+                    style="@style/WhiteEdit" />
+
+            <EditText
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:id="@+id/vid_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    style="@style/WhiteEdit" />
+
+            <EditText
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:id="@+id/anonymous_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    style="@style/WhiteEdit" />
+
+
+
+            <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="54dp">
+
+                <TextView
+                        android:textColor="#3C7FFF"
+                        android:gravity="center"
+                        android:text="确定"
+                        android:id="@+id/confirm_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                <TextView
+                        android:text="跳过"
+                        android:textColor="#061229"
+                        android:gravity="center"
+                        android:id="@+id/cancel_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

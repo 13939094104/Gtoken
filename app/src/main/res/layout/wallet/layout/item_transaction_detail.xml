@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.text.TextUtils"/>
+        <variable name="transactionRecord" type="com.vtoken.application.model.TransactionRecord"/>
+        <variable name="walletTransactionDetailModel" type="com.vtoken.application.viewModel.wallet.WalletTransactionDetailViewModel"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="0.5dp"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/detailtran_row_shdow"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:text="@{ TextUtils.isEmpty(transactionRecord.address)? transactionRecord.des:transactionRecord.address}"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/text_normal"
+                        android:layout_height="wrap_content" android:id="@+id/textView14"
+                />
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="50"
+                    android:layout_width="wrap_content"
+                    android:gravity="right"
+                    android:layout_height="match_parent">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right">
+                    <TextView
+                            android:text="@{transactionRecord.value}"
+                            android:layout_width="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="@color/bar_title"
+                            android:layout_height="wrap_content" android:id="@+id/textView19"/>
+                </TableRow>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

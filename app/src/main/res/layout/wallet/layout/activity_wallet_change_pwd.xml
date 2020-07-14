@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="walletPwdModel" type="com.vtoken.application.viewModel.wallet.WalletPwdViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            >
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    >
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_light_black"
+                        android:layout_width="24dp"
+                        android:layout_marginLeft="12dp"
+                        android:onClick="@{()->walletPwdModel.finish()}"
+                        android:layout_height="24dp" android:id="@+id/returnpage"/>
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="修改钱包密码"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView"
+                        android:textSize="16sp"
+                        android:textColor="@color/bar_title"/>
+
+                </RelativeLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/input_back_radius_4_shape"
+                    >
+
+                    <TextView
+                        android:text="原密码"
+                        android:layout_width="60dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_height="wrap_content" android:textSize="14sp"
+                        android:textColor="@color/bar_title"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPassword"
+                        android:textSize="12sp"
+                        android:background="@null"
+                        android:layout_marginLeft="32dp"
+                        android:textCursorDrawable="@null"
+                        android:textColorHint="#646B7B"
+                        android:hint="原密码"
+                        android:textColor="@color/bar_title"
+                        android:maxLength="10"
+                        android:text="@={walletPwdModel.oldPwdString}"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:background="@drawable/input_back_radius_4_shape"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    >
+
+                    <TextView
+                        android:text="新密码"
+                        android:layout_width="60dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/bar_title"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPassword"
+                        android:textSize="12sp"
+                        android:background="@null"
+                        android:layout_marginLeft="32dp"
+                        android:textCursorDrawable="@null"
+                        android:textColorHint="#646B7B"
+                        android:hint="@string/wallet_create_pwd_format_tip"
+                        android:textColor="@color/bar_title"
+                        android:text="@={walletPwdModel.newPwdString}"
+                        />
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:background="@drawable/input_back_radius_4_shape"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    >
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="16dp"
+                        android:text="重复密码"
+                        android:textColor="@color/bar_title"
+                        android:textSize="14sp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPassword"
+                        android:textSize="12sp"
+                        android:background="@null"
+                        android:layout_marginLeft="32dp"
+                        android:textCursorDrawable="@null"
+                        android:textColorHint="#646B7B"
+                        android:hint="再次输入新密码"
+                        android:textColor="@color/bar_title"
+                        android:text="@={walletPwdModel.newPwdRepeatString}"
+                        />
+
+                </TableRow>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="32dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+
+                    android:paddingBottom="25dp"
+                    >
+
+
+                    <Button
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:background="@drawable/button_yellow_gradualchange"
+                        android:layout_width="match_parent"
+                        android:textSize="16dp"
+                        android:onClick="@{()->walletPwdModel.confirmChangeWalletPwd()}"
+                        android:layout_height="46dp"
+                        android:id="@+id/button7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

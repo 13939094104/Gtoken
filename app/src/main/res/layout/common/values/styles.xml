@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="rl_application">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:background">@drawable/chat_back_radius_8_shape</item>
+    </style>
+
+    <style name="iv_arrorright">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="tv_applicationtitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tv_applicationsub">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>

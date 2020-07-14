@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_find_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_read"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_find_contain"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/bg_banner"
+            android:textColor="@color/white"
+            android:lineSpacingExtra="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            />
+<!--        <WebView-->
+<!--            android:id="@+id/tv_find_contain"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:background="@color/gnodeblue"-->
+<!--            android:scrollbars="none"-->
+<!--            tools:ignore="WebViewLayout" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_find_read"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:background="@drawable/bg_readbottom"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="  阅读全文 >"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="14sp" />-->
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

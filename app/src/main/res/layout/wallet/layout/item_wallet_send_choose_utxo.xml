@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="changeAddress" type="com.vtoken.application.model.ChangeAddress"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:paddingLeft="16dp"
+        android:background="@drawable/background_line"
+        android:paddingRight="16dp"
+        >
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_height="12dp"
+            android:src="@{changeAddress.check? @drawable/icon_round_1s : @drawable/icon_round }"
+            android:id="@+id/icon1"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/icon1"
+            android:layout_toLeftOf="@id/balance"
+            tools:text="ewgggggggggggggggggggggggregggggggggggg"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{changeAddress.txid}"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_height="wrap_content"
+            android:id="@+id/textd254sView26"
+            android:textColor="@color/text_normal"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/balance"
+            android:src="@drawable/icon_v_black"
+            android:layout_width="12dp"
+            android:layout_marginTop="3dp"
+            android:layout_height="12dp"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            tools:text="20.222222222"
+            android:text="@{changeAddress.balance}"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/bar_title"
+            android:layout_height="wrap_content"
+            android:id="@+id/balance"/>
+    </RelativeLayout>
+</layout>

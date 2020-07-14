@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt">
+    <data>
+
+    </data>
+    <LinearLayout android:layout_width="match_parent"
+                  android:gravity="center"
+                    android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center"
+                      android:orientation="vertical"
+                      android:background="@drawable/bg_erweima"
+                      android:layout_width="328dp"
+
+                      android:layout_height="wrap_content"
+                  >
+            <ImageView
+
+                android:id="@+id/headicon"
+                android:src="@drawable/icon_usdt_36"
+                android:layout_width="36dp"
+                android:elevation="3dp"
+                android:layout_marginTop="24dp"
+                android:layout_height="36dp" />
+            <LinearLayout
+                    android:id="@+id/content_layout"
+                    android:layout_width="296dp"
+                    android:layout_height="330dp"
+                android:layout_marginTop="-20dp"
+                    android:gravity="top|center_horizontal"
+                    android:background="@drawable/gray_radius_8_shape"
+                    android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:text="USDT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:textColor="#061229"
+                    android:textSize="16sp" />
+                <ImageView
+                        android:id="@+id/iv_qr"
+                        android:src="@mipmap/bg_load"
+                        android:layout_marginTop="14dp"
+                        android:layout_width="192dp"
+                        android:layout_height="192dp" />
+
+
+                <TableRow
+                    android:id="@+id/ivSave"
+                    android:layout_width="133dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/intro_card_radius_20"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:text="保存到本地"
+                        android:textColor="#3C7FFF"
+                        android:layout_marginLeft="4dp"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/options"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="16dp"
+
+                >
+                    <TextView
+                        android:id="@+id/tvInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="16dp"
+                        android:text="收款地址"
+                        android:textSize="14sp"
+                        android:textColor="#061229" />
+                    <TableRow
+                        android:id="@+id/ivCopy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+
+
+                    >  <TextView
+                        android:id="@+id/tv_code"
+                        android:layout_width="241dp"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="2e2dbe036acaab84c9a24a8c58aa1c496b50665a71c915e91ceb9fe8f7c93ec9"
+                        android:textSize="12sp"
+                        android:textColor="@color/wallet_gray" />
+
+                        <ImageView
+
+                            android:src="@drawable/icon_copy_black"
+                            android:layout_width="12dp"
+                            android:elevation="3dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_height="12dp" />
+                    </TableRow>
+
+
+
+                </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

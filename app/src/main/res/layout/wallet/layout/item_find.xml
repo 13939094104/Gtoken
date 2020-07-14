@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/chat_back_radius_8_shape">
+
+        <ImageView
+            android:id="@+id/iv_find_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_find_head"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_itemfind_title"
+                    android:layout_width="wrap_content"
+                    android:textSize="14sp"
+                    android:text="标题"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tv_new"
+                    android:layout_width="wrap_content"
+                    android:textSize="7sp"
+                    android:text="NEW"
+                    android:textColor="@color/white"
+                    android:paddingStart="4dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:paddingEnd="4dp"
+                    android:gravity="center"
+                    android:background="@color/red"
+                    android:layout_height="12dp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_itemfind_subtitle"
+                android:layout_width="wrap_content"
+                android:text="内容"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_zly_right" />
+    </RelativeLayout>
+
+</LinearLayout>

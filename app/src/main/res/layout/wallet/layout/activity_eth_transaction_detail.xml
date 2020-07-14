@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="translationRecordViewModel" type="com.vtoken.application.viewModel.wallet.TranslationRecordViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0F1118"
+            android:fitsSystemWindows="true">
+        <ScrollView
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:background="#F8F8F8">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/mainLayout"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:paddingBottom="16dp"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/trans_back"
+                >
+                <TableRow
+                    android:layout_width="44dp"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:id="@+id/returnpage"
+                    android:onClick="@{()->translationRecordViewModel.finish()}"
+                    >
+                    <ImageView
+                        android:src="@drawable/icon_light_white"
+                        android:layout_width="24dp"
+                        android:layout_gravity="center"
+                        android:layout_height="24dp" />
+                </TableRow>
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="转账记录"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="16sp"
+                    android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="222dp"
+                android:background="#0C51C1"
+
+                android:paddingRight="16dp"
+
+                android:paddingBottom="16dp"
+                >
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="26dp"
+                    >
+                    <ImageView
+                        android:src="@drawable/icon_success1"
+                        android:layout_width="48dp"
+                        android:layout_gravity="center"
+                        android:layout_height="48dp" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+
+
+                    >
+
+                    <TextView
+                        android:text="@{translationRecordViewModel.transaction.valueFormat}"
+                        android:textColor="#FFFFFF"
+                        android:layout_weight="1"
+                        android:layout_marginTop="16dp"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+
+                    >
+
+                    <TextView
+                        android:text="转账成功"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+
+                </TableRow>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-50dp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="16dp"
+                    android:background="@drawable/button_gray_r16">
+
+
+
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                            android:background="@drawable/background_line">
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="接收地址"
+                                        android:textSize="14sp"
+                                        android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:onClick="@{()->translationRecordViewModel.copyTransactionto()}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.to}"
+
+                                        android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+              >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                            android:background="@drawable/background_line">
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="付款地址"
+                                        android:textSize="14sp"
+                                    android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:onClick="@{()->translationRecordViewModel.copyTransactionfrom()}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.from}"
+                                    android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                  >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                            android:background="@drawable/background_line">
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="矿工费"
+                                        android:textSize="14sp"
+                                    android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.fee}"
+                                    android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                <TextView
+                                        android:text=" ETH"
+                                        android:textColor="#646B7B"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="16dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_line"
+                        >
+
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+
+
+                            >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                              >
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="区块"
+                                        android:textSize="14sp"
+                                    android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.blockNumber}"
+                                    android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                        >
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="交易号"
+                                        android:textSize="14sp"
+                                    android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:onClick="@{()->translationRecordViewModel.copyHash()}"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.hash}"
+                                    android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="89dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <ImageView
+
+                                        android:src="@drawable/icon_wallet_copy_s"
+                                        android:layout_width="16dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_height="16dp" android:id="@+id/txqtcode"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+
+                            android:weightSum="100"
+                         >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:paddingRight="16dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+                            <TableRow
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                   >
+                                <ImageView
+                                    android:id="@+id/qrCode"
+                                        android:src="@color/blackbg"
+                                        android:layout_width="82dp"
+
+                                        android:layout_gravity="center"
+                                        android:layout_height="82dp" />
+                            </TableRow>
+                            </TableRow>
+
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                       >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="交易时间"
+                                        android:textSize="14sp"
+                                        android:textColor="#061229"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="@{translationRecordViewModel.transaction.dateFormat}"
+                                    android:textColor="#828894"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                      >
+
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="12dp"
+
+                            android:weightSum="100"
+                         >
+
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20.0">
+
+                            <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp">
+
+                                <TextView
+                                        android:text="备注信息"
+                                        android:textSize="14sp"
+                                        android:textColor="#C4CEE5"
+                                        android:singleLine="true"
+                                        android:maxWidth="120dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginLeft="13dp"
+                                        android:text=""
+                                        android:textColor="#18D78B"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                            </TableRow>
+
+                            <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:text="暂无备注"
+                                        android:textColor="#646B7B"
+                                        android:textSize="12sp"
+                                        android:ellipsize="middle"
+
+                                        android:layout_marginTop="8dp"
+                                        android:singleLine="true"
+                                        android:maxWidth="283dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/button_gray_r16">
+
+                <LinearLayout
+                    android:onClick="@{()->translationRecordViewModel.jumpExploer()}"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="12dp"
+
+                        android:weightSum="100"
+                      >
+
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20.0">
+
+                        <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                              >
+
+                            <TextView
+                                    android:text="到Etherscan查询交易记录"
+                                    android:textSize="14sp"
+                                    android:textColor="#3C7FFF"
+                                    android:layout_marginLeft="16dp"
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                            <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="13dp"
+                                    android:text=""
+                                    android:textColor="#18D78B"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+                        <ImageView
+                                android:src="@drawable/icon_link2"
+                                android:layout_width="24dp"
+
+                                android:layout_height="24dp" />
+
+                        </TableRow>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gnode">
+        <item>1Vollar</item>
+        <item>100Vollar</item>
+        <item>300Vollar</item>
+        <item>500Vollar</item>
+        <item>1000Vollar</item>
+        <item>1800Vollar</item>
+    </string-array>
+
+</resources>

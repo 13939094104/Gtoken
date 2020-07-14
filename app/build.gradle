@@ -1,0 +1,178 @@
+buildscript {
+    repositories {
+       // maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+       // classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+   // maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+//apply plugin: 'io.fabric'
+android {
+
+
+    gradle.taskGraph.whenReady {
+        tasks.each { task ->
+            if (task.name.contains("crashlyticsUploadDeobsRelease")) {
+                task.enabled = false
+            }
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.vtoken.application"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+//        externalNativeBuild {
+//            ndkBuild {
+//                arguments "NDK_APPLICATION_MK:=jni/Application.mk", "APP_PLATFORM:=android-16", "-j8"
+//                abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+//            }
+//        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    def listSubFile = {
+        def resFolder = 'src/main/res/layout'
+        def files = file(resFolder).listFiles()
+        def folders = []
+        files.each {
+            item -> folders.add(item.absolutePath)
+        }
+        folders.add(file(resFolder).parentFile.absolutePath)
+        return folders
+    }
+    sourceSets {
+        main {
+            res.srcDirs = listSubFile()
+            jniLibs.srcDirs = ['libs'
+                               //     ,'./jni/'
+            ]
+        }
+    }
+//    externalNativeBuild {
+//        ndkBuild {
+//            path "jni/Android.mk"
+//        }
+//    }
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        jumboMode = true
+    }
+
+    repositories  {
+        flatDir{ dirs 'libs'  }
+    }
+}
+
+realm {
+    syncEnabled = true
+}
+
+dependencies {
+    compileOnly 'org.checkerframework:checker-qual:2.5.0'
+    compileOnly 'org.checkerframework:checker-compat-qual:2.5.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation group: 'com.ashokvarma.android', name: 'bottom-navigation-bar', version: '2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-script-runtime:1.3.30"
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation('com.journeyapps:zxing-android-embedded:3.5.0') { transitive = false }
+    //implementation 'cn.jiguang.sdk:jpush:3.3.1'  // 此处以JPush 3.3.1 版本为例。
+    //implementation 'cn.jiguang.sdk:jcore:2.0.1'  // 此处以JCore 2.0.1 版本为例。
+    implementation 'com.orhanobut:logger:2.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation group: 'com.google.guava', name: 'guava', version: '22.0-rc1-android'
+    implementation 'org.mozilla.javascript:com.springsource.org.mozilla.javascript:1.7.0.R2'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+    implementation group: 'com.madgag.spongycastle', name: 'bcpg-jdk15on', version: '1.58.0.0'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.4'
+    implementation 'com.facebook.stetho:stetho:1.3.1'
+    implementation group: 'com.tbruyelle.rxpermissions2', name: 'rxpermissions', version: '0.9.5'
+    implementation group: 'com.trello.rxlifecycle2', name: 'rxlifecycle-components', version: '2.2.2'
+    implementation group: 'org.web3j', name: 'core', version: '4.5.5'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'androidx.exifinterface:exifinterface:1.0.0'
+    implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
+    implementation 'com.google.android.gms:play-services-wearable:17.0.0'
+    implementation 'com.airbnb.android:lottie:3.4.0'
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+    implementation (name:'lottilewidget', ext:'aar')
+    implementation 'com.lzy.net:okgo:2.1.4'
+    implementation 'com.github.Cutta:GifView:1.1'
+
+}
+
+//apply plugin: 'com.google.gms.google-services'

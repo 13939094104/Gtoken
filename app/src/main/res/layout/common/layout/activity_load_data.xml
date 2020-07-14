@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="loadDataViewModel" type="com.vtoken.application.viewModel.LoadDataViewModel"/>
+    </data>
+    <RelativeLayout
+            android:tag="layout/activity_splash_0"
+            android:background="@drawable/bg_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+            android:visibility="gone"
+                android:id="@+id/iv_logo"
+                android:background="@drawable/bg_vtoken1"
+                android:layout_width="160dp" android:layout_height="160dp"
+                android:layout_marginTop="150dp" android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/zly_bglogo"
+            />
+<!--        <com.airbnb.lottie.LottieAnimationView-->
+<!--            tools:src="@drawable/bg_vtoken1"-->
+<!--            app:lottie_rawRes="@raw/splash_logo"-->
+<!--            app:lottie_autoPlay="true"-->
+<!--            android:layout_width="160dp"-->
+<!--            android:layout_height="160dp"-->
+<!--            android:layout_marginTop="150dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            app:lottie_loop="false"-->
+<!--            />-->
+
+        <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true">
+
+            <!-- <ProgressBar android:id="@+id/loading_progress_bar"
+                          android:layout_width="28dp"
+                          android:layout_height="28dp"
+                          android:indeterminateDrawable="@drawable/loading_color"/>
+             <TextView
+                     android:textSize="14dp"
+                     android:textColor="#89a5c1"
+                     android:gravity="center_vertical"
+                     android:text="@{splashViewModel.loadingText}"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="6dp"/>-->
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

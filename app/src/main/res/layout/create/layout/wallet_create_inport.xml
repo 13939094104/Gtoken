@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="walletCreateFirstModel"
+            type="com.vtoken.application.viewModel.create.WalletCreateFirstViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_start"
+        android:fitsSystemWindows="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/returnsetpsw"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="150dp"
+                android:src="@mipmap/zly_bglogo" />
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="190dp"
+                android:background="@drawable/press_change_yellow_button_r25"
+                android:onClick="@{()-> walletCreateFirstModel.changeWalletType(0)}"
+                android:text="创建钱包"
+                android:textColor="#3C7FFF"></Button>
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_green_gradualchange_r25"
+                android:onClick="@{()-> walletCreateFirstModel.changeWalletType(1)}"
+                android:text="恢复钱包"
+                android:textColor="#FFFFFF"></Button>
+
+
+            <!--<LinearLayout
+                     android:orientation="vertical"
+                     android:layout_width="match_parent"
+                     android:layout_marginTop="42dp"
+                     android:layout_height="wrap_content">
+                 <Button
+                         android:text="下一步"
+                         android:textSize="14sp"
+                         android:textColor="#0F1118"
+                         android:background="@drawable/press_change_yellow_button"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content" android:id="@+id/topageStep"
+                         android:onClick="@{()->walletCreateFirstModel.nextStep()}"
+                 />
+             </LinearLayout>-->
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

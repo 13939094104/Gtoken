@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+     
+ <!-- top, bottom, left, right为此图层向内缩进的像素数-->
+ <item android:top="1dp" android:left="1dp" android:right="1dp">
+  <shape>
+      <solid android:color="#1C1E28" />
+           <corners android:topLeftRadius="16dp"
+                   android:topRightRadius="16dp"
+                    android:bottomLeftRadius="16dp"
+                    android:bottomRightRadius="16dp"
+           />
+   </shape>
+</item>
+
+</layer-list>

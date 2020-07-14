@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingEnd="5dp">
+    <androidx.cardview.widget.CardView android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="112.5dp" android:layout_marginEnd="5dp" app:cardBackgroundColor="@color/app_light_bg" app:cardCornerRadius="7.5dp">
+        <LinearLayout android:orientation="vertical"
+            android:tag="skin:menu_bg:background"
+            android:background="#252525"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="112.5dp">
+            <TextView android:id="@+id/title_0_text" android:visibility="gone" style="@style/AddressMenu_Option"/>
+            <View android:id="@+id/line" android:tag="skin:menu_divider:background" android:background="#70778e" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginStart="10dp" android:layout_marginEnd="10dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

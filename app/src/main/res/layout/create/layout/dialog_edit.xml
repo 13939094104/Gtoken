@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_r8_bfff" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="32dp" android:layout_marginEnd="32dp">
+        <TextView android:textSize="16sp" android:textColor="#061229"
+                  android:layout_gravity="center_horizontal"
+                  android:id="@+id/info_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="12dp"
+                  android:text="@string/hint_intro_recovery_replace_word"/>
+
+        <EditText android:textSize="14dp" android:textColor="@color/dialog_divider_v" android:textColorHint="@color/intro_edit_text" android:gravity="left|center_vertical|center_horizontal|center|start" android:id="@+id/edit_text" android:background="@drawable/input_r4_bf5f8ff" android:padding="8dp" android:layout_width="match_parent" android:layout_height="46dp" android:layout_marginTop="24dp" android:layout_marginBottom="24dp" android:maxLength="50" android:inputType="textCapWords" android:textCursorDrawable="@color/intro_edit_text" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
+
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14dp" android:textColor="@color/dialog_divider_v" android:gravity="center" android:id="@+id/cancel_text" android:padding="12dp" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1"/>
+
+            <TextView android:textSize="14dp" android:textColor="@color/word" android:gravity="center" android:id="@+id/confirm_text" android:padding="12dp" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/confirm" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

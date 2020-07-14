@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt">
+    <data>
+        <variable name="scanViewModel" type="com.vtoken.application.viewModel.ScanViewModel"/>
+    </data>
+    <RelativeLayout android:orientation="vertical"
+                    android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+                android:id="@+id/scan_decorated_barcode_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:zxing_preview_scaling_strategy="fitXY"
+                app:zxing_scanner_layout="@layout/custom_barcode_scanner"
+                app:zxing_use_texture_view="true"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp">
+            <ImageButton
+                         android:background="@null"
+                         android:padding="10dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:src="@drawable/intro_back_selector"
+                         android:scaleType="fitXY"
+                         android:onClick="@{()->scanViewModel.back()}"
+                         android:baselineAligned="false"
+                         android:layout_marginStart="10dp"/>
+            <TextView android:textSize="20dp" android:textStyle="bold" android:textColor="@color/white"
+                      android:layout_gravity="center"  android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:layout_marginStart="7dp"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical"
+                      android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+            <TextView android:textColor="@color/white"  android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:layout_marginTop="15dp"
+                      android:layout_marginBottom="100dp"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical"
+                      android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_horizontal"
+                       android:background="@drawable/album_logo_selector"
+                       android:onClick="@{()->scanViewModel.startPickPhoto()}"
+                       android:layout_width="22dp"
+                       android:layout_height="19dp"/>
+            <TextView android:textColor="@color/white"  android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:layout_marginTop="15dp"
+                      android:layout_marginBottom="30dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

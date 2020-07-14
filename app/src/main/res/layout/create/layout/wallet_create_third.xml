@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="walletCreateThirdModel" type="com.vtoken.application.viewModel.create.WalletCreateThirdViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:background="#fff"
+            android:fitsSystemWindows="true">
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:paddingLeft="16dp"
+                          android:paddingRight="16dp"
+                          android:orientation="vertical">
+                <TableRow
+                    android:layout_width="44dp"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="-16dp"
+                    android:onClick="@{()->walletCreateThirdModel.returnStep()}"
+                    >
+                    <ImageView
+                            android:src="@drawable/icon_light_black"
+                            android:layout_width="24dp"
+
+                            android:layout_height="24dp" android:id="@+id/returnsetpsw"/>
+                </TableRow>
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                >
+
+
+                    <TextView
+                            android:text="备份助记词"
+                            android:textColor="#061229"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:layout_height="wrap_content" android:id="@+id/textView20"/>
+
+                    <TextView
+                            android:text="(3/4)"
+                            android:textSize="11sp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="#3C7FFF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView25"/>
+                </TableRow>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+
+                        android:paddingRight="16dp"
+                >
+
+                    <TextView
+                            android:text="请认真按顺序抄写下方12个助记词，我们将在下一步验证"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView30" android:layout_weight="1"
+                            android:textColor="#828894" android:textSize="11sp"/>
+                </LinearLayout>
+                <FrameLayout android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="25dp"
+                >
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:background="@drawable/blue_card_border"
+                              android:textColor="#061229"
+                              android:gravity="center"
+                              android:paddingTop="20dp"
+                              android:paddingBottom="22dp"
+                              android:minHeight="70dp"
+                              android:paddingStart="20dp"
+                              android:paddingEnd="20dp"
+                              android:id="@+id/memericWords"
+                              android:autoSizeMaxTextSize="23sp"
+                              android:autoSizeMinTextSize="11sp"
+                              android:autoSizeStepGranularity="2sp"
+                              android:text="@{walletCreateThirdModel.mnemonicWordsString}"
+                    />
+                    <com.vtoken.application.widget.ScrapeView
+                            android:id="@+id/scrapeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                </FrameLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="42dp"
+                        android:layout_height="wrap_content">
+                    <Button
+                            android:text="下一步"
+                            android:textSize="16sp"
+                            android:textColor="#fff"
+                            android:background="@drawable/press_change_yellow_button"
+                            android:layout_width="match_parent"
+                            android:onClick="@{()-> walletCreateThirdModel.checkAndShowConfirmDialog() }"
+                            android:layout_height="wrap_content" android:id="@+id/stepnext"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+    </LinearLayout>
+</layout>
